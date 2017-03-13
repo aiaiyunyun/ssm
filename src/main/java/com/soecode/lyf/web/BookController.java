@@ -54,7 +54,7 @@ public class BookController {
 			"application/json; charset=utf-8" })
 	private Result<AppointExecution> appoint(@PathVariable("bookId") Long bookId, @Param("studentId") Long studentId) {
 		if (studentId == null || studentId.equals("")) {
-			return new Result<>(false, "学号不能为空");
+			return new Result<AppointExecution>(false, "学号不能为空");
 		}
 		AppointExecution execution = bookService.appoint(bookId, studentId);
 		return new Result<AppointExecution>(true, execution);

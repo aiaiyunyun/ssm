@@ -22,7 +22,10 @@
 		(2)允许使用"/"做整体映射
 	 -->
 	 <mvc:default-servlet-handler/>
-	 
+
+
+	<mvc:resources mapping="/static/**" location="/WEB-INF/static/" />
+
 	 <!-- 3.配置jsp 显示ViewResolver -->
 	 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	 	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />

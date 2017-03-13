@@ -1,0 +1,32 @@
+body{
+    /*background-image:url("../images/bg.jpg");*/
+}
+.div_login{
+    padding-top: 600px;
+    width: 400px;
+    height: 200px;
+    margin-left:auto;
+    margin-right:27%;
+}
+.div_possion{
+    width: 400px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    box-shadow:10px 10px 5px #444;
+    -moz-box-shadow:10px 10px 5px #444;
+    -webkit-box-shadow:10px 10px 5px #444;
+    z-index:1;
+}
+.div_login a{
+    width: 60px;
+    padding-left: 70px;
+    padding-right: 20px;
+}
+.btn{
+    width: 200px;
+    background-color:rgba(0,0,0,0.3);
+    box-shadow:10px 10px 5px #444;
+    -moz-box-shadow:10px 10px 5px #444;
+    -webkit-box-shadow:10px 10px 5px #444;
+    z-index:1;
+}
