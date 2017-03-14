@@ -11,10 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-<jsp:include page="common/bootstrap.jsp"/>
+<div style="margin: 120px">
+    <a href="/index/main"><span><img src="../static/hplus/img/a3.jpg"></span></a>
+</div>
 
-<jsp:include page="common/head.jsp"/>
-<a href="/index/main"><span>登录</span></a>
-<jsp:include page="common/tag.jsp"/>
 </body>
 </html>

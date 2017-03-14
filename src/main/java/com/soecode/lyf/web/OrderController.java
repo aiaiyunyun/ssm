@@ -1,5 +1,7 @@
 package com.soecode.lyf.web;
 
+import com.soecode.lyf.util.PageData;
+import com.soecode.lyf.web.base.BaseController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,7 +15,7 @@ import java.util.Date;
  */
 @Controller
 @RequestMapping("/index")
-public class OrderController {
+public class OrderController extends BaseController{
     //进入主页
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     private ModelAndView main() {
@@ -21,7 +23,7 @@ public class OrderController {
         mv.setViewName("main/index");
         return mv;
     }
-//进入销货单
+    //进入销货单
     @RequestMapping(value = "/saleput", method = RequestMethod.GET)
     private ModelAndView list() {
         ModelAndView mv = new ModelAndView();
@@ -67,6 +69,12 @@ public class OrderController {
         System.out.println(number);
         mv.addObject("num",number);
         mv.setViewName("order/electPrice");
+        return mv;
+    }
+    @RequestMapping(value="/goAddSale")
+    public ModelAndView goAddU(){
+        ModelAndView mv = this.getModelAndView();
+        mv.setViewName("order/NewSale");
         return mv;
     }
 }
