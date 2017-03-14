@@ -14,7 +14,7 @@
 <jsp:include page="common/bootstrap.jsp"/>
 
 <jsp:include page="common/head.jsp"/>
-<a href="/index/saleput"><span>登录</span></a>
+<a href="/index/main"><span>登录</span></a>
 <jsp:include page="common/tag.jsp"/>
 </body>
 </html>

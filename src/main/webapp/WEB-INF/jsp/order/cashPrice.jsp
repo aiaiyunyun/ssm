@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>销货单</title>
+    <title>现金付款单</title>
     <meta charset="utf-8">
     <!--支持 浏览器内核 webkit、ie-comp IE兼容、ie-stand IE标准 -->
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
@@ -24,22 +24,13 @@
 </head>
 <body style="margin-right: 40px;margin-left: 40px">
 <div class="row">
-    <h2 style="text-align:center">唐山军荣铝业有限公司销货单</h2>
+    <h2 style="text-align:center">唐山军荣铝业有限公司客户现金付款单</h2>
 </div>
 <from>
-
-    <table>
-        <tr>
-            <td><span><strong>单据编号:</strong>${num}</span></td>
-            <td width="80%"></td>
-            <td><span><strong>发货日期:</strong><input type="text" name="date" id="date" width="120"></span></td>
-        </tr>
-        <tr>
-            <td> <span><strong>业务员姓名:</strong><input type="text" name="name"></span></td>
-            <td width="400px"></td>
-            <td> <span><strong>客户名称:</strong><input type="text" name="custumer"></span><br/></td>
-        </tr>
-    </table>
+    <div>
+        <p style="text-align: right"><strong>单据编号:</strong>${num}</p>
+        <p style="text-align: right"><strong>付款日期：</strong>自动生成发货日期</p>
+    </div>
     <div id="myTabContent" class="tab-content row" style="height: 60%;">
         <div class="tab-pane fade in active" id="tab2">
             <table class="table table-striped table-hover" id="reportTable" ></table>
@@ -48,15 +39,9 @@
     <hr/><hr/><hr/>
     <hr/>
     <div class="row">
-        <div style="float: left">
-            <span><strong>产品类型:</strong><input id="in1" name="in1" type="text" value="121"></span>
-        </div>
         <div style="float: right">
-
-      <span style="text-align: left"><strong>老客户:&nbsp&nbsp</strong><input name="whether" type="radio" value=""/>是
-            <input name="whether" type="radio" value=""/>否</span>
-            <span><strong>&nbsp&nbsp&nbsp录入人员:&nbsp&nbsp</strong><input name="" value="" type="text"></span>
-            <span style="text-align: right"><strong>&nbsp&nbsp&nbsp复核人员:&nbsp&nbsp</strong><input name="" value="" type="text"></span>
+            <span><strong>&nbsp&nbsp&nbsp经手人：&nbsp&nbsp</strong><input name="" value="" type="text"></span>
+            <span style="text-align: right"><strong>&nbsp&nbsp&nbsp录入人：&nbsp&nbsp</strong><input name="" value="" type="text"></span>
         </div>
     </div>
     <hr/>
@@ -119,13 +104,9 @@
                     console.log(row.index)
                     return row.index=index+1 ; //返回行号
                 }},
-                {field:"product_name",title:"产品名称",align:"center",sortable:true},
-//                {field:"type",title:"产品类型",align:"center",sortable:true,class:"in2"},
-                {field:"specification_model",title:"规格型号",align:"center",sortable:true},
-                {field:"product_quantity",title:"产品数量",align:"center",sortable:true},
-                {field:"unit_price",title:"单价（元）",align:"center",sortable:true},
-                {field:"money",title:"金额（元）",align:"center",sortable:true},
-                {field:"bak",title:"备注",align:"center",sortable:true},
+                {field:"product_name",title:"付款客户名称",align:"center",sortable:true},
+                {field:"type",title:"现金金额（元）",align:"center",sortable:true,class:"in2"},
+                {field:"specification_model",title:"客户联系方式",align:"center",sortable:true},
                 {field:"userstatus_end_time",title:"操作",align:"center",formatter:function(value,row,rowIndex){
                     var strHtml = '<a href="javascript:void(0);" onclick="removeRow('+rowIndex+')">删除</a>';
                     /*  var strHtml2 = '<a href="javascript:void(0);" onclick="removeRow('+rowIndex+')">查看</a>';*/
