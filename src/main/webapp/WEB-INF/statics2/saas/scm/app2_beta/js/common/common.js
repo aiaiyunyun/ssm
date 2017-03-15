@@ -347,7 +347,8 @@ $.fn.extend({
 		$.ajax(ajaxOpts); 
 	}
 });
-Public.ajaxGet = function(url, params, callback, errCallback){    
+Public.ajaxGet = function(url, params, callback, errCallback){
+	console.log(44)
 	$.ajax({  
 	   type: "GET",
 	   url: url,
@@ -2293,7 +2294,7 @@ Business.billsEvent = function(obj, type, flag){
 				});
 				$(this).data('hasInstance', true);
 		});
-		
+
 		//取消分录编辑状态
 		$(document).bind('click.cancel', function(e){
 			if(!$(e.target).closest(".ui-jqgrid-bdiv").length > 0 && $(e.target).closest(".pika-single").length == 0 && curRow !== null && curCol !== null){

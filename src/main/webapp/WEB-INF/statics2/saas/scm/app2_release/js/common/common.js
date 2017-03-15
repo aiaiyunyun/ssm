@@ -282,6 +282,7 @@ Public.ajaxPost = function(url, params, callback, errCallback){
 		   		defaultPage.Public.tips({type:1, content:errorStr});
 		   		return;
 		   	}*/
+		   	console.log(12212121221)
 			callback(data);  
 	   },  
 	   error: function(err,ms){  
@@ -347,7 +348,8 @@ $.fn.extend({
 		$.ajax(ajaxOpts); 
 	}
 });
-Public.ajaxGet = function(url, params, callback, errCallback){    
+Public.ajaxGet = function(url, params, callback, errCallback){
+	console.log(22)
 	$.ajax({  
 	   type: "GET",
 	   url: url,
@@ -3228,7 +3230,7 @@ $(function(){
 					'</ul>',
 				'</div>'
 			];
-			$.dialog({
+		/*	$.dialog({
 				title: '页面配置',
 				content: content.join(''),
 				width: 500,
@@ -3313,7 +3315,7 @@ $(function(){
 							(function($grid, $configGrid){
 								$configGrid.on('click', '.set-status', function(event) {
 									event.preventDefault();
-									/* Act on the event */
+									/!* Act on the event *!/
 									var $this = $(this);
 									var id = $this.closest('tr')[0].id;
 									var rowData = $configGrid.jqGrid('getRowData',id);
@@ -3333,7 +3335,7 @@ $(function(){
 					$('.ui_content').prepend($_tab);
 					$_tab.on('click', 'li', function(event) {
 						event.preventDefault();
-						/* Act on the event */
+						/!* Act on the event *!/
 						var $this = $(this);
 						var _index = $this.index();
 						$this.addClass('cur').siblings('.cur').removeClass('cur');
@@ -3359,7 +3361,7 @@ $(function(){
 				        return true;
 					}}
 				]
-			});
+			});*/
 		};
 		function _updatePageConfig(gridId, prop){
 			//为了区分用户修改，必须精确到每个字段的每个属性 prop = [propName, colName, propValue];

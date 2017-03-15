@@ -1,14 +1,20 @@
 package com.soecode.lyf.web;
 
-import com.soecode.lyf.util.PageData;
+import com.soecode.lyf.entity.SalesOrders;
+import com.soecode.lyf.entity.vo.JsonVo;
 import com.soecode.lyf.web.base.BaseController;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JsonConfig;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by lsd on 2017-03-13.
@@ -27,11 +33,6 @@ public class OrderController extends BaseController{
     @RequestMapping(value = "/saleput", method = RequestMethod.GET)
     private ModelAndView list() {
         ModelAndView mv = new ModelAndView();
-        SimpleDateFormat sf = new SimpleDateFormat("yyyyMMddhhmmss");
-        Date data1 = new Date();
-        String number = sf.format(data1);
-        System.out.println(number);
-        mv.addObject("num",number);
         mv.setViewName("order/list");
         return mv;
     }
@@ -75,6 +76,20 @@ public class OrderController extends BaseController{
     public ModelAndView goAddU(){
         ModelAndView mv = this.getModelAndView();
         mv.setViewName("order/NewSale");
+        SimpleDateFormat sf = new SimpleDateFormat("yyyyMMddhhmmss");
+        Date data1 = new Date();
+        String number = sf.format(data1);
+        System.out.println(number);
+        mv.addObject("num",number);
         return mv;
+    }
+    @RequestMapping(value="/addNew",method = RequestMethod.POST)
+    public JsonVo addNew(HttpServletRequest request,String postData){
+        JsonVo js = new JsonVo();
+        String[] dapost = postData.split(":",1);
+        JSONArray array = JSONArray.fromObject(dapost);
+        List<SalesOrders> smarts = JSONArray.toList(array,new SalesOrders(), new JsonConfig());
+        System.out.println(smarts);
+        return js;
     }
 }

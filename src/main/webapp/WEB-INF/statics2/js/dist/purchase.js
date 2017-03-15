@@ -73,7 +73,7 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
 					value: 0
 				}
 			}));
-			var c = '<a id="savaAndAdd" class="ui-btn ui-btn-sp">保存并新增</a><a id="save" class="ui-btn">保存</a>',
+			var c = '<a id="savaAndAdd" class="ui-btn ui-btn-sp">保存并新增1</a><a id="save" class="ui-btn">保存</a>',
 				d = '<a id="add" class="ui-btn ui-btn-sp">新增</a><a href="../scm/invPu/toPdf?action=toPdf&id=' + a.id + '" target="_blank" id="print" class="ui-btn">打印</a><a id="edit" class="ui-btn">保存</a>',
 				e = '<a id="add" class="ui-btn ui-btn-sp">新增</a><a href="../scm/invPu/toPdf?action=toPdf&id=' + a.id + '" target="_blank" id="print" class="ui-btn">打印</a>',
 				f = "",
@@ -1012,10 +1012,11 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
 					})
 				}))
 			}), $(".wrapper").on("click", "#savaAndAdd", function(b) {
+				alert("开始添加");
 				b.preventDefault();
 				var c = $(this),
 					d = THISPAGE.getPostData();
-				d && c.ajaxPost("../scm/invPu/addNew?action=addNew", {
+				d && c.ajaxPost("/index/addNew", {
 					postData: JSON.stringify(d)
 				}, function(b) {
 					if (200 === b.status) {
@@ -1182,7 +1183,7 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
 						var j = $("#" + g).data("storageInfo");
 						if (!j || !j.id) return parent.Public.tips({
 							type: 2,
-							content: "请选择相应的仓库！"
+							content: "请选择相应的仓库！11111"
 						}), $("#grid").jqGrid("editCellByColName", g, "locationName"), !1;
 						var k = $("#" + g).data("unitInfo") || {};
 						if (SYSTEM.ISSERNUM) {

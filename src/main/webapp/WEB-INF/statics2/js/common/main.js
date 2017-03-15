@@ -308,7 +308,8 @@ define(["jquery", "plugins", "grid", "dialog", "datepicker"], function(require, 
 				$.ajax(ajaxOpts); 
 			}
 		});
-		Public.ajaxGet = function(url, params, callback, errCallback){    
+		Public.ajaxGet = function(url, params, callback, errCallback){
+			console.log(33)
 			$.ajax({  
 			   type: "GET",
 			   url: url,

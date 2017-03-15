@@ -1072,7 +1072,7 @@ var curRow, curCol, curArrears, loading, urlParam = Public.urlParam(),
 				e = $("#fix1").data("storageInfo");
 			if (!e || !e.id) return parent.Public.tips({
 				type: 2,
-				content: "请选择相应的仓库！"
+				content: "请选择相应的仓库！222"
 			}), $("#fixedGrid").jqGrid("editCell", n, 9, !0), !1;
 			var f = $("#fix1").data("unitInfo") || {};
 			if ("" === c.goods) return parent.Public.tips({
@@ -1115,7 +1115,7 @@ var curRow, curCol, curArrears, loading, urlParam = Public.urlParam(),
 						q = $("#" + n).data("storageInfo");
 					if (!q || !q.id) return parent.Public.tips({
 						type: 2,
-						content: "请选择相应的仓库！"
+						content: "请选择相应的仓库！3333"
 					}), $("#grid").jqGrid("editCell", n, 10, !0), !1;
 					var r = $("#" + n).data("unitInfo") || {},
 						g = p.serNumList;

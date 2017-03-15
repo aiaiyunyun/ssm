@@ -54,24 +54,25 @@
         <div class="con-header">
             <dl class="cf">
                 <dd class="pct25">
-                    <label>客户：</label>
+                    <label>客户名称：</label>
                     <span class="ui-combo-wrap" id="customer">
                           <input type="text" name="" class="input-txt" autocomplete="off" value="" data-ref="date">
                           </span>
                 </dd>
-                <dd id="identifier" class="pct20 tc">
-                    <label>销售人员:</label>
-                    <span class="ui-combo-wrap" id="sales">
-                              <input type="text" class="input-txt" autocomplete="off">
+                <dd class="pct20 tc">
+                    <label>业务员姓名：</label>
+                    <span class="ui-combo-wrap" id="sales_ww">
+                          <input type="text" name="" class="input-txt" autocomplete="off" value="" data-ref="date">
                           </span>
                 </dd>
                 <dd class="pct20 tc">
-                    <label>单据日期:</label>
+                    <label>发货日期：</label>
                     <input type="text" id="date" class="ui-input ui-datepicker-input" value="2015-06-08">
                 </dd>
-                <dd id="identifier" class="pct20 tc">
+                <dd id="11" class="pct20">
                     <label>单据编号:</label>
-                    <span id="number">XS201701201312096</span></dd>
+                   <input id="billNo" type="text" class="input-txt ui-input" autocomplete="off" value="${num}">
+                </dd>
                 <!-- <dd id="classes" class="pct15 tr">
                   <label class="radio">
                     <input type="radio" name="classes" value="150601">
@@ -93,18 +94,19 @@
             </div>
             <ul id="amountArea" class="cf">
                 <li>
-                    <label>优惠率:</label>
-                    <input type="text" id="discountRate" class="ui-input" data-ref="deduction">%
+                    <label>老客户：</label>
+                    <input type="radio" name="discountRate">是&nbsp&nbsp&nbsp
+                    <input type="radio" name="discountRate">否
                 </li>
                 <li>
-                    <label>优惠金额:</label>
-                    <input type="text" id="deduction" class="ui-input" data-ref="payment">
+                    <label>录入人员：</label>
+                    <input type="text" id="deduction" class="ui-input">
                 </li>
                 <li>
-                    <label>优惠后金额:</label>
-                    <input type="text" id="discount" class="ui-input ui-input-dis" data-ref="discountRate" disabled>
+                    <label>复核人员：</label>
+                    <input type="text" id="discount" class="ui-input" >
                 </li>
-                <li>
+                <%--<li>
                     <label>客户承担费用:</label>
                     <input type="text" id="customerFree" class="ui-input" data-ref="customerFree">
                 </li>
@@ -140,7 +142,7 @@
                     <label>最后修改时间:</label>
                     <span id="modifyTime"></span>
                 </li>
-            </ul>
+            </ul>--%>
         </div>
         <div class="cf" id="bottomField">
             <div class="fr" id="toolBottom"></div>
