@@ -1358,16 +1358,19 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
 			 }), !1;*/
             var f = this._getEntriesData(a);
             if (!f) return !1;
+            var bb = $("#customer").val()
+            console.log("tttttttttttttttttttttttttttttttttttt"+bb)
             if (f.length > 0) {
                 var g = $.trim(b.$_note.val()),
                     h = {
                         id: originalData.id,
-                        // buId: e.id,
-                        // contactName: e.name,
-                        // salesId: $("#sales_ww").val(),
-                        salesName: $("#sales_ww").val(),
-                        date: $.trim(b.$_date.val()),
-                        billNo: $.trim(b.$_number.text()),
+                        custmerName: $("#customer").val(),//客户名称
+                        salesName:  $("#sales_ww").val(),//售货员姓名
+                        date: $.trim(b.$_date.val()),//发货日期
+                        billNo: $("#billNo").val(),//账单号
+                        regular_customer:$(".regular_customer").val(),//是否是老客户
+                        input_man:$("#input_man").val(),//录入人
+                        reviewer:$("#reviewer").val(),//审核人
                         transType: originalData.transType,
                         entries: f,
                         totalQty: $("#grid").jqGrid("footerData", "get").qty.replace(/,/g, ""),

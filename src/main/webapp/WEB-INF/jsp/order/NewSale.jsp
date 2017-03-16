@@ -55,14 +55,14 @@
             <dl class="cf">
                 <dd class="pct25">
                     <label>客户名称：</label>
-                    <span class="ui-combo-wrap" id="customer">
-                          <input type="text" name="" class="input-txt" autocomplete="off" value="" data-ref="date">
+                    <span class="ui-combo-wrap" >
+                          <input type="text" name="" class="input-txt ui-input" autocomplete="off" id="customer">
                           </span>
                 </dd>
                 <dd class="pct20 tc">
                     <label>业务员姓名：</label>
-                    <span class="ui-combo-wrap" id="sales_ww">
-                          <input type="text" name="" class="input-txt" autocomplete="off" value="" data-ref="date">
+                    <span class="ui-combo-wrap">
+                          <input type="text" name="" class="input-txt" autocomplete="off" value="" data-ref="date" id="sales_ww">
                           </span>
                 </dd>
                 <dd class="pct20 tc">
@@ -95,16 +95,16 @@
             <ul id="amountArea" class="cf">
                 <li>
                     <label>老客户：</label>
-                    <input type="radio" name="discountRate">是&nbsp&nbsp&nbsp
-                    <input type="radio" name="discountRate">否
+                    <input type="radio" name="regular_customer" class="regular_customer" value="是">是&nbsp&nbsp&nbsp
+                    <input type="radio" name="regular_customer" class="regular_customer" value="否">否
                 </li>
                 <li>
                     <label>录入人员：</label>
-                    <input type="text" id="deduction" class="ui-input">
+                    <input type="text" id="input_man"  class="input-txt ui-input" autocomplete="off">
                 </li>
                 <li>
                     <label>复核人员：</label>
-                    <input type="text" id="discount" class="ui-input" >
+                    <input type="text" id="reviewer" class="input-txt ui-input" autocomplete="off" >
                 </li>
                 <%--<li>
                     <label>客户承担费用:</label>

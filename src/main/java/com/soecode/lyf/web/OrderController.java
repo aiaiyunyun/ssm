@@ -5,6 +5,7 @@ import com.soecode.lyf.entity.vo.JsonVo;
 import com.soecode.lyf.web.base.BaseController;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -87,9 +89,12 @@ public class OrderController extends BaseController{
     public JsonVo addNew(HttpServletRequest request,String postData){
         JsonVo js = new JsonVo();
         String[] dapost = postData.split(":",1);
+
         JSONArray array = JSONArray.fromObject(dapost);
-        List<SalesOrders> smarts = JSONArray.toList(array,new SalesOrders(), new JsonConfig());
-        System.out.println(smarts);
+        JSONObject object = (JSONObject) array.get(0);
+        System.out.println(object);
+        String entries = object.getString("entries");
+        System.out.println(entries);
         return js;
     }
 }
