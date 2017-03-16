@@ -95,8 +95,26 @@
             <ul id="amountArea" class="cf">
                 <li>
                     <label>老客户：</label>
-                    <input type="radio" name="regular_customer" class="regular_customer" value="是">是&nbsp&nbsp&nbsp
-                    <input type="radio" name="regular_customer" class="regular_customer" value="否">否
+                    <input type="radio" name="regular_customer" class="regular_customer" value="1">是&nbsp&nbsp&nbsp
+                    <input type="radio" name="regular_customer" class="regular_customer" value="0">否
+                </li>
+                <li>
+                    <label>产品类型：</label>
+                    <input type="radio" name="type_product" class="type_product" value="1">铝壶&nbsp&nbsp&nbsp
+                    <input type="radio" name="type_product" class="type_product" value="2">封口钳&nbsp&nbsp&nbsp
+                    <input type="radio" name="type_product" class="type_product" value="3">盖
+                </li>
+                <li>
+                    <label>运费：</label>
+                    <input type="text" id="freight"  class="input-txt ui-input" autocomplete="off">
+                </li>
+                <li>
+                    <label>胶圈数量：</label>
+                    <input type="text" id="apron_num"  class="input-txt ui-input" autocomplete="off">
+                </li>
+                <li>
+                    <label>胶圈总价：</label>
+                    <input type="text" id="apron_price"  class="input-txt ui-input" autocomplete="off">
                 </li>
                 <li>
                     <label>录入人员：</label>

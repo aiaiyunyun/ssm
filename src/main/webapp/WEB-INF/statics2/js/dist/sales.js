@@ -1286,8 +1286,8 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
             for (var b = [], c = $("#grid").jqGrid("getDataIDs"), d = 0, e = c.length; e > d; d++) {
                 var f, g = c[d],
                     h = $("#grid").jqGrid("getRowData", g);
+                console.log(h)
                 if ("" !== h.goods) {
-                    console.log(g)
                     var i = $("#" + g).data("goodsInfo");
                     if (i) {
                         var j = $("#" + g).data("storageInfo");
@@ -1307,26 +1307,12 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                             }
                         }
                         f = {
-                            invId: i.id,
-                            invNumber: i.number,
-                            invName: i.name,
-                            invSpec: i.spec,
-                            skuId: i.skuId || -1,
-                            skuName: i.skuName || "",
-                            unitId: k.unitId || -1,
-                            mainUnit: k.name || "",
-                            qty: h.qty,
-                            price: h.price,
-                            discountRate: h.discountRate,
-                            deduction: h.deduction,
-                            amount: h.amount,
-                            // locationId: j.id,
-                            // locationName: j.name,
-                            description: h.description,
-                            srcOrderEntryId: h.srcOrderEntryId,
-                            srcOrderId: h.srcOrderId,
-                            srcOrderNo: h.srcOrderNo,
-                            serNumList: l
+                            goods:h.goods,//产品名称
+                            specificationModel:h.specificationModel,//规格型号
+                            description:h.description,//备注
+                            qty: h.qty,//数量
+                            price: h.price,//价格
+                            amount: h.amount,//金额
                         }, SYSTEM.ISWARRANTY && $.extend(!0, f, {
                             batch: h.batch || "",
                             prodDate: h.prodDate || "",
@@ -1359,11 +1345,13 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
             var f = this._getEntriesData(a);
             if (!f) return !1;
             var bb = $("#customer").val()
-            console.log("tttttttttttttttttttttttttttttttttttt"+bb)
             if (f.length > 0) {
                 var g = $.trim(b.$_note.val()),
                     h = {
-                        id: originalData.id,
+                        type_product:$(".type_product").val(),//产品类型
+                        freight:$("#freight").val(),//运费
+                        apron_num:$("#apron_num").val(),//胶圈数目
+                        apron_price:$("#apron_price").val(),//胶圈总价
                         custmerName: $("#customer").val(),//客户名称
                         salesName:  $("#sales_ww").val(),//售货员姓名
                         date: $.trim(b.$_date.val()),//发货日期
@@ -1374,16 +1362,8 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                         transType: originalData.transType,
                         entries: f,
                         totalQty: $("#grid").jqGrid("footerData", "get").qty.replace(/,/g, ""),
-                        totalDiscount: $("#grid").jqGrid("footerData", "get").deduction.replace(/,/g, ""),
                         totalAmount: $("#grid").jqGrid("footerData", "get").amount.replace(/,/g, ""),
                         description: g === b.$_note[0].defaultValue ? "" : g,
-                        disRate: $.trim(b.$_discountRate.val() || 0),
-                        disAmount: $.trim(b.$_deduction.val() || 0),
-                        amount: $.trim(b.$_discount.val()),
-                        rpAmount: $.trim(b.$_payment.val() || 0),
-                        arrears: $.trim(b.$_arrears.val()),
-                        totalArrears: "",
-                        customerFree: $.trim(b.$_customerFree.val())
                     };
 				/*if (h.disRate < 0) return defaultPage.Public.tips({
 				 type: 2,

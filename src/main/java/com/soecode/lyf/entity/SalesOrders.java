@@ -4,87 +4,83 @@ package com.soecode.lyf.entity;
  * Created by lsd on 2017-03-14.
  */
 public class SalesOrders {
-    private int id;
-    private String document_number;
-    private String date_issuance;
-    private String salesman_name;
-    private String customer_name;
+    private String documentNumber;
+    private String dateIssuance;
+    private String salesmanName;
+    private String customerName;
+    private String orderAllAmount;
     private String whether;
-    private String entry_personnel;
-    private String review_officer;
-    private String creation_date;
-    private String del_status;
-    private String order_all_amount;
-    private String receive_state;
-    private String item_type;
-    private String freight_amount;
-    private String extended_space1;
-    private String extended_space2;
-    private String extended_space3;
-    private String extended_space4;
-
-
-    public SalesOrders(int id, String document_number, String date_issuance, String salesman_name, String customer_name,
-                       String whether, String entry_personnel, String review_officer, String creation_date,
-                       String del_status, String order_all_amount, String receive_state, String item_type,
-                       String freight_amount) {
-        this.id = id;
-        this.document_number = document_number;
-        this.date_issuance = date_issuance;
-        this.salesman_name = salesman_name;
-        this.customer_name = customer_name;
-        this.whether = whether;
-        this.entry_personnel = entry_personnel;
-        this.review_officer = review_officer;
-        this.creation_date = creation_date;
-        this.del_status = del_status;
-        this.order_all_amount = order_all_amount;
-        this.receive_state = receive_state;
-        this.item_type = item_type;
-        this.freight_amount = freight_amount;
-    }
+    private String entryPersonnel;
+    private String reviewOfficer;
+    private String creationDate;
+    private String receiveState;
+    private String itemType;
+    private String freightAmount;
+    private String apronPrice;
+    private String apronNum;
+    private String bak;
+    private String delStatus;
 
     public SalesOrders() {
     }
 
-    public int getId() {
-        return id;
+    public SalesOrders(String documentNumber, String dateIssuance, String salesmanName, String customerName, String orderAllAmount, String whether, String entryPersonnel, String reviewOfficer, String creationDate, String receiveState, String itemType, String freightAmount, String apronPrice, String apronNum, String bak, String delStatus) {
+        this.documentNumber = documentNumber;
+        this.dateIssuance = dateIssuance;
+        this.salesmanName = salesmanName;
+        this.customerName = customerName;
+        this.orderAllAmount = orderAllAmount;
+        this.whether = whether;
+        this.entryPersonnel = entryPersonnel;
+        this.reviewOfficer = reviewOfficer;
+        this.creationDate = creationDate;
+        this.receiveState = receiveState;
+        this.itemType = itemType;
+        this.freightAmount = freightAmount;
+        this.apronPrice = apronPrice;
+        this.apronNum = apronNum;
+        this.bak = bak;
+        this.delStatus = delStatus;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getDocumentNumber() {
+        return documentNumber;
     }
 
-    public String getDocument_number() {
-        return document_number;
+    public void setDocumentNumber(String documentNumber) {
+        this.documentNumber = documentNumber;
     }
 
-    public void setDocument_number(String document_number) {
-        this.document_number = document_number;
+    public String getDateIssuance() {
+        return dateIssuance;
     }
 
-    public String getDate_issuance() {
-        return date_issuance;
+    public void setDateIssuance(String dateIssuance) {
+        this.dateIssuance = dateIssuance;
     }
 
-    public void setDate_issuance(String date_issuance) {
-        this.date_issuance = date_issuance;
+    public String getSalesmanName() {
+        return salesmanName;
     }
 
-    public String getSalesman_name() {
-        return salesman_name;
+    public void setSalesmanName(String salesmanName) {
+        this.salesmanName = salesmanName;
     }
 
-    public void setSalesman_name(String salesman_name) {
-        this.salesman_name = salesman_name;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public String getCustomer_name() {
-        return customer_name;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public void setCustomer_name(String customer_name) {
-        this.customer_name = customer_name;
+    public String getOrderAllAmount() {
+        return orderAllAmount;
+    }
+
+    public void setOrderAllAmount(String orderAllAmount) {
+        this.orderAllAmount = orderAllAmount;
     }
 
     public String getWhether() {
@@ -95,67 +91,83 @@ public class SalesOrders {
         this.whether = whether;
     }
 
-    public String getEntry_personnel() {
-        return entry_personnel;
+    public String getEntryPersonnel() {
+        return entryPersonnel;
     }
 
-    public void setEntry_personnel(String entry_personnel) {
-        this.entry_personnel = entry_personnel;
+    public void setEntryPersonnel(String entryPersonnel) {
+        this.entryPersonnel = entryPersonnel;
     }
 
-    public String getReview_officer() {
-        return review_officer;
+    public String getReviewOfficer() {
+        return reviewOfficer;
     }
 
-    public void setReview_officer(String review_officer) {
-        this.review_officer = review_officer;
+    public void setReviewOfficer(String reviewOfficer) {
+        this.reviewOfficer = reviewOfficer;
     }
 
-    public String getCreation_date() {
-        return creation_date;
+    public String getCreationDate() {
+        return creationDate;
     }
 
-    public void setCreation_date(String creation_date) {
-        this.creation_date = creation_date;
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
     }
 
-    public String getDel_status() {
-        return del_status;
+    public String getReceiveState() {
+        return receiveState;
     }
 
-    public void setDel_status(String del_status) {
-        this.del_status = del_status;
+    public void setReceiveState(String receiveState) {
+        this.receiveState = receiveState;
     }
 
-    public String getOrder_all_amount() {
-        return order_all_amount;
+    public String getItemType() {
+        return itemType;
     }
 
-    public void setOrder_all_amount(String order_all_amount) {
-        this.order_all_amount = order_all_amount;
+    public void setItemType(String itemType) {
+        this.itemType = itemType;
     }
 
-    public String getReceive_state() {
-        return receive_state;
+    public String getFreightAmount() {
+        return freightAmount;
     }
 
-    public void setReceive_state(String receive_state) {
-        this.receive_state = receive_state;
+    public void setFreightAmount(String freightAmount) {
+        this.freightAmount = freightAmount;
     }
 
-    public String getItem_type() {
-        return item_type;
+    public String getApronPrice() {
+        return apronPrice;
     }
 
-    public void setItem_type(String item_type) {
-        this.item_type = item_type;
+    public void setApronPrice(String apronPrice) {
+        this.apronPrice = apronPrice;
     }
 
-    public String getFreight_amount() {
-        return freight_amount;
+    public String getApronNum() {
+        return apronNum;
     }
 
-    public void setFreight_amount(String freight_amount) {
-        this.freight_amount = freight_amount;
+    public void setApronNum(String apronNum) {
+        this.apronNum = apronNum;
+    }
+
+    public String getBak() {
+        return bak;
+    }
+
+    public void setBak(String bak) {
+        this.bak = bak;
+    }
+
+    public String getDelStatus() {
+        return delStatus;
+    }
+
+    public void setDelStatus(String delStatus) {
+        this.delStatus = delStatus;
     }
 }

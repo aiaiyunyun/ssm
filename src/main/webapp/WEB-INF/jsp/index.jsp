@@ -12,7 +12,7 @@
 </head>
 <body>
 <div style="margin: 120px">
-    <a href="/index/main"><span><img src="../static/hplus/img/a3.jpg"></span></a>
+    <a href="index/main"><span><img src="../static/hplus/img/a3.jpg"></span></a>
 </div>
 
 </body>

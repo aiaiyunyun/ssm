@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soecode.lyf.dao.OrderDao">
+
+	<insert id="saveOrder1">
+		INSERT IGNORE INTO sales_orders(
+		document_number
+		)VALUES(
+		#{document_number}
+		)
+	</insert>
+
+	<insert id="saveOrder">
+		INSERT IGNORE INTO sales_orders(
+		document_number,
+		date_issuance,
+		salesman_name,
+		customer_name,
+		order_all_amount,
+		whether,
+		entry_personnel,
+		review_officer,
+		creation_date,
+		receive_state,
+		item_type,
+		freight_amount,
+		apron_price,
+		apron_num,
+		bak,
+		del_status
+		)VALUES(
+		#{document_number},
+		CAST('#{date_issuance}' AS DATETIME),
+		#{salesman_name},
+		#{customer_name},
+		#{order_all_amount},
+		#{whether},
+		#{entry_personnel},
+		#{review_officer},
+		CAST('#{creation_date}' AS DATETIME),
+		0,
+		#{item_type},
+		#{freight_amount},
+		#{apron_price},
+		#{apron_num},
+		#{bak},
+		#{del}
+		)
+	</insert>
+
+</mapper>
