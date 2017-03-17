@@ -298,7 +298,7 @@ define(["jquery", "plugins", "grid", "dialog", "datepicker"], function(require, 
 						loading.close();
 					},
 					error: function(err){  
-						parent.Public.tips({type: 2, content : '操作无法成功，请稍后重试！'});
+						parent.Public.tips({type: 2, content : '操作无法成功，请稍后重试！1'});
 						errCallback && errCallback(err);
 				   	}
 				});

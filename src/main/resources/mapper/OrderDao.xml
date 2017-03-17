@@ -6,9 +6,39 @@
 
 	<insert id="saveOrder1">
 		INSERT IGNORE INTO sales_orders(
-		document_number
+		document_number,
+		date_issuance,
+		salesman_name,
+		customer_name,
+		order_all_amount,
+		whether,
+		entry_personnel,
+		review_officer,
+		creation_date,
+		receive_state,
+		item_type,
+		freight_amount,
+		apron_price,
+		apron_num,
+		bak,
+		del_status
 		)VALUES(
-		#{document_number}
+		#{document_number},
+		CAST(#{date_issuance} AS DATETIME),
+		#{salesman_name},
+		#{customer_name},
+		#{order_all_amount},
+		#{whether},
+		#{entry_personnel},
+		#{review_officer},
+		CAST(#{creation_date} AS DATETIME),
+		0,
+		#{item_type},
+		#{freight_amount},
+		#{apron_price},
+		#{apron_num},
+		#{bak},
+		#{del}
 		)
 	</insert>
 
@@ -32,14 +62,14 @@
 		del_status
 		)VALUES(
 		#{document_number},
-		CAST('#{date_issuance}' AS DATETIME),
+		CAST(#{date_issuance} AS DATETIME),
 		#{salesman_name},
 		#{customer_name},
 		#{order_all_amount},
 		#{whether},
 		#{entry_personnel},
 		#{review_officer},
-		CAST('#{creation_date}' AS DATETIME),
+		CAST(#{creation_date} AS DATETIME),
 		0,
 		#{item_type},
 		#{freight_amount},
@@ -49,5 +79,61 @@
 		#{del}
 		)
 	</insert>
+
+	<insert id="saveProduct">
+		INSERT IGNORE INTO payment_details(
+		product_name,
+		specification_model,
+		product_quantity,
+		unit_price,
+		money,
+		creation_date,
+		bak,
+		item_type,
+		pin_ID,
+		del_status
+		)VALUES(
+		#{goods},
+		#{specificationModel},
+		#{qty},
+		#{price},
+		#{amount},
+		CAST(#{criate} AS DATETIME),
+		#{descrip},
+		#{item_type},
+		#{pin_ID},
+		1
+		)
+	</insert>
+
+	<select id="selectIdByNumber" resultType="SalesOrders" parameterType="string">
+		<!-- 具体的sql -->
+		SELECT
+		id
+		FROM
+		sales_orders
+		WHERE
+		document_number = #{documentNumber}
+	</select>
+
+	<select id="selectList" resultType="SalesOrders" parameterType="List">
+		<!-- 具体的sql -->
+		SELECT A.*
+			FROM
+			(
+				SELECT
+				*
+				FROM
+				sales_orders
+				WHERE del_status = 1
+			)A
+		limit #{firstResult},#{maxResults}
+	</select>
+	<select id="getTotal" resultType="SalesOrders" parameterType="List">
+		<!-- 具体的sql -->
+		SELECT	*
+		FROM
+		sales_orders WHERE del_status = 1
+	</select>
 
 </mapper>

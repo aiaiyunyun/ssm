@@ -25,7 +25,7 @@
         </a>
         <ul class="nav nav-second-level">
             <li>
-                <a class="J_menuItem" href="/index/saleput" data-index="0">信息列表</a>
+                <a class="J_menuItem" href="/index/goAddSale" data-index="0">信息列表</a>
             </li>
             <li>
                 <a class="J_menuItem" href="/index/saleput" data-index="0">添加详情</a>

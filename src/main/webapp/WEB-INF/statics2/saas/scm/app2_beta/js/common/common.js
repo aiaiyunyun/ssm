@@ -337,7 +337,7 @@ $.fn.extend({
 				loading.close();
 			},
 			error: function(err){  
-				parent.Public.tips({type: 2, content : '操作无法成功，请稍后重试！'});
+				parent.Public.tips({type: 2, content : '操作无法成功，请稍后重试！2'});
 				errCallback && errCallback(err);
 		   	}
 		});

@@ -270,8 +270,8 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 align: "center"
             }, {
                 name: "goods",
-                label: "产品名称",
-                width: 240,
+                label: "付款客户名称",
+                width: 300,
                 classes: "goods",
                 formatter: c,
                 editable: !0,
@@ -288,8 +288,9 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 }
             },{
                 name: "specificationModel",
-                label: "规格型号",
-                width: 150,
+                label: "规格型号1",
+                width: 70,
+                hidden:!0,
                 fixed: !0,
                 align: "right",
                 editable: !0
@@ -379,7 +380,8 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
             }, {
                 name: "qty",
                 label: "数量",
-                width: 150,
+                width: 80,
+                hidden: !0,
                 align: "right",
                 formatter: "number",
                 formatoptions: {
@@ -388,9 +390,9 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 editable: !0
             }, {
                 name: "price",
-                label: "销售单价",
+                label: "电汇金额",
                 hidden: hiddenAmount,
-                width: 150,
+                width: 200,
                 fixed: !0,
                 align: "right",
                 formatter: "currency",
@@ -431,8 +433,8 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
             }, {
                 name: "amount",
                 label: "销售金额",
-                hidden: hiddenAmount,
-                width: 150,
+                hidden: !0,
+                width: 100,
                 fixed: !0,
                 align: "right",
                 formatter: "currency",
@@ -492,7 +494,7 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 editable: !0
             }), this.calAmount = "taxAmount"), y.push({
                 name: "description",
-                label: "备注",
+                label: "客户联系方式",
                 width: 200,
                 title: !0,
                 editable: !0
@@ -895,15 +897,6 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                     t.mod_PageConfig.updatePageConfig("grid", ["width", t.mod_PageConfig.conf.grids.grid.defColModel[b - 1].name, a])
                 },
                 loadonce: !0,
-                footerrow: !0,
-                userData: {
-                    goods: "合计：",
-                    qty: a.totalQty,
-                    deduction: a.totalDiscount,
-                    amount: a.totalAmount,
-                    tax: a.totalTax,
-                    taxAmount: a.totalTaxAmount
-                },
                 userDataOnFooter: !0,
                 loadError: function(a, b) {
                     Public.tips({
@@ -1173,7 +1166,7 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                     var d = THISPAGE.getPostData();
                     console.log("====================="+JSON.stringify(d));
                     d && ("edit" === originalData.stata && (d.id = originalData.id, d.stata = "edit"),
-						c.ajaxPost("index/addNew", {
+						c.ajaxPost("index/addElect", {
                         postData: JSON.stringify(d)
                     },function(b) {
                             if (200 === b.status) {
@@ -1361,9 +1354,9 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                         reviewer:$("#reviewer").val(),//审核人
                         transType: originalData.transType,
                         entries: f,
-                        totalQty: $("#grid").jqGrid("footerData", "get").qty.replace(/,/g, ""),
-                        totalAmount: $("#grid").jqGrid("footerData", "get").amount.replace(/,/g, ""),
-                        description: g === b.$_note[0].defaultValue ? "" : g,
+                        // totalQty: $("#grid").jqGrid("footerData", "get").qty.replace(/,/g, ""),
+                        // totalAmount: $("#grid").jqGrid("footerData", "get").amount.replace(/,/g, ""),
+                        // description: g === b.$_note[0].defaultValue ? "" : g,
                     };
 				/*if (h.disRate < 0) return defaultPage.Public.tips({
 				 type: 2,

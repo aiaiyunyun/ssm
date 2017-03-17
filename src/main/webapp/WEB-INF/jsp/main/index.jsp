@@ -53,14 +53,14 @@
             </button>
             <nav class="page-tabs J_menuTabs">
                 <div class="page-tabs-content">
-                    <a href="javascript:;" class="active J_menuTab" data-id="index_v1.html">首页</a>
+                    <a href="javascript:(0);" class="active J_menuTab" data-id="index_v1.html">首页</a>
                 </div>
             </nav>
             <a href="javascript(0)" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
 
         </div>
         <div class="row J_mainContent" id="content-main"style="overflow: hidden">
-            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/index/saleput" frameborder="0" data-id="/index/saleput" seamless></iframe>
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/index/goAddSale" frameborder="0" data-id="/index/saleput" seamless></iframe>
         </div>
     </div>
 </div>

@@ -2,11 +2,23 @@ package com.soecode.lyf.service;
 
 import com.soecode.lyf.entity.SalesOrders;
 
+import java.util.List;
+
 /**
  * Created by lsd on 2017-03-16.
  */
 public interface OrderService {
-    void saveOrder(String custmerName,String salesName,String date,String number,String input_man,String reviewer,
-                          String item_type,String freight_amount,String whether,String criate,String del,
-                          String totalAmount,String description,String apron_num,String apron_price);
+    //存储数据
+    void saveOrder(String number,String date,  String salesName, String custmerName,
+                   String totalAmount,String whether,String input_man,String reviewer,
+                   String criate,String item_type,String freight_amount,
+                   String apron_price, String apron_num,String description,String del);
+    //根据编码查询id
+    SalesOrders selectIdByNumber(String number);
+    //存储买卖记录
+    void saveProduct(String goods, String specificationModel, String qty, String price,
+                     String amount, String descrip,String criate,String item_type,String pin_ID);
+
+    List<SalesOrders> selectList(Integer firstResult,Integer maxResults);
+    List<SalesOrders> getTotal();
 }

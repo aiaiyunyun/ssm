@@ -337,8 +337,9 @@ $.fn.extend({
 			complete : function(){
 				loading.close();
 			},
-			error: function(err){  
-				parent.Public.tips({type: 2, content : '操作无法成功，请稍后重试！'});
+			error: function(err){
+				window.location.reload();
+				// parent.Public.tips({type: 2, content : '操作无法成功，请稍后重试！3'});
 				errCallback && errCallback(err);
 		   	}
 		});

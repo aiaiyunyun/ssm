@@ -4,6 +4,7 @@ package com.soecode.lyf.entity;
  * Created by lsd on 2017-03-14.
  */
 public class SalesOrders {
+    private int id;
     private String documentNumber;
     private String dateIssuance;
     private String salesmanName;
@@ -24,7 +25,8 @@ public class SalesOrders {
     public SalesOrders() {
     }
 
-    public SalesOrders(String documentNumber, String dateIssuance, String salesmanName, String customerName, String orderAllAmount, String whether, String entryPersonnel, String reviewOfficer, String creationDate, String receiveState, String itemType, String freightAmount, String apronPrice, String apronNum, String bak, String delStatus) {
+    public SalesOrders(int id, String documentNumber, String dateIssuance, String salesmanName, String customerName, String orderAllAmount, String whether, String entryPersonnel, String reviewOfficer, String creationDate, String receiveState, String itemType, String freightAmount, String apronPrice, String apronNum, String bak, String delStatus) {
+        this.id = id;
         this.documentNumber = documentNumber;
         this.dateIssuance = dateIssuance;
         this.salesmanName = salesmanName;
@@ -41,6 +43,14 @@ public class SalesOrders {
         this.apronNum = apronNum;
         this.bak = bak;
         this.delStatus = delStatus;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDocumentNumber() {
