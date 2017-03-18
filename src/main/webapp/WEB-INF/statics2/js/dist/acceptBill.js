@@ -288,9 +288,8 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 }
             },{
                 name: "specificationModel",
-                label: "规格型号1",
-                width: 70,
-                hidden:!0,
+                label: "承兑汇票号",
+                width: 120,
                 fixed: !0,
                 align: "right",
                 editable: !0
@@ -306,9 +305,9 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 hidden: !SYSTEM.enableAssistingProp
             }, {
                 name: "mainUnit",
-                label: "单位",
+                label: "承兑汇票号",
+                hidden:!0,
                 width: 80,
-                hidden: !0,
                 edittype: "custom",
                 editoptions: {
                     custom_element: g,
@@ -352,9 +351,8 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 }
             }, {
                 name: "prodDate",
-                label: "生产日期",
+                label: "承兑汇票到期日",
                 width: 90,
-                hidden: !0,
                 title: !1,
                 editable: !0,
                 edittype: "custom",
@@ -390,7 +388,7 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 editable: !0
             }, {
                 name: "price",
-                label: "电汇金额(元)",
+                label: "电汇金额",
                 hidden: hiddenAmount,
                 width: 200,
                 fixed: !0,

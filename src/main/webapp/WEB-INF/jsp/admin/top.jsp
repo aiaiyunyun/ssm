@@ -10,45 +10,25 @@
     <div class="navbar-collapse collapse" id="navbar">
         <ul class="nav navbar-nav">
             <li class="active">
-                <a aria-expanded="false" role="button" href="/index/main"> 返回首页</a>
+                <a aria-expanded="false" role="button" href="/index/index"> 返回首页</a>
             </li>
             <li class="dropdown">
-                <a aria-expanded="false" role="button" href="/index/saleput" class="dropdown-toggle" > 销货单 <span class="caret"></span></a>
+                <a aria-expanded="false" role="button" href="/index/index1" class="dropdown-toggle" > 销货单 </a>
             </li>
             <li class="dropdown">
-                <a aria-expanded="false" role="button" href="/index/elect" class="dropdown-toggle" > 电汇付款单 <span class="caret"></span></a>
+                <a aria-expanded="false" role="button" href="/index/index2" class="dropdown-toggle" > 电汇付款单 </a>
             </li>
             <li class="dropdown">
-                <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> 菜单 <span class="caret"></span></a>
-                <ul role="menu" class="dropdown-menu">
-                    <li><a href="">菜单列表</a>
-                    </li>
-                    <li><a href="">菜单列表</a>
-                    </li>
-                    <li><a href="">菜单列表</a>
-                    </li>
-                    <li><a href="">菜单列表</a>
-                    </li>
-                </ul>
+                <a aria-expanded="false" role="button" href="/index/index3" class="dropdown-toggle" > 承兑付款单 </a>
             </li>
             <li class="dropdown">
-                <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> 菜单 <span class="caret"></span></a>
-                <ul role="menu" class="dropdown-menu">
-                    <li><a href="">菜单列表</a>
-                    </li>
-                    <li><a href="">菜单列表</a>
-                    </li>
-                    <li><a href="">菜单列表</a>
-                    </li>
-                    <li><a href="">菜单列表</a>
-                    </li>
-                </ul>
+                <a aria-expanded="false" role="button" href="/index/index4" class="dropdown-toggle" > 现金付款单 </a>
             </li>
 
         </ul>
         <ul class="nav navbar-top-links navbar-right">
             <li>
-                <a href="login.html">
+                <a href="/#">
                     <i class="fa fa-sign-out"></i> 退出
                 </a>
             </li>

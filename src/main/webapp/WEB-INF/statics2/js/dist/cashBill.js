@@ -390,7 +390,7 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 editable: !0
             }, {
                 name: "price",
-                label: "电汇金额(元)",
+                label: "现金金额(元)",
                 hidden: hiddenAmount,
                 width: 200,
                 fixed: !0,

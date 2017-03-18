@@ -135,5 +135,12 @@
 		FROM
 		sales_orders WHERE del_status = 1
 	</select>
+	<select id="selectUser" resultType="User" parameterType="List">
+		<!-- 具体的sql -->
+		SELECT	*
+		FROM
+		user WHERE username=#{name}
+		AND password = #{pwd}
+	</select>
 
 </mapper>

@@ -1,6 +1,7 @@
 package com.soecode.lyf.service;
 
 import com.soecode.lyf.entity.SalesOrders;
+import com.soecode.lyf.entity.User;
 
 import java.util.List;
 
@@ -21,4 +22,5 @@ public interface OrderService {
 
     List<SalesOrders> selectList(Integer firstResult,Integer maxResults);
     List<SalesOrders> getTotal();
+    List<User> selectUser(String name,String pwd);
 }

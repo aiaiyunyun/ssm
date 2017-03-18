@@ -28,7 +28,7 @@
     <link href="../../static/hplus/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
     <link href="../../static/hplus/css/plugins/jqgrid/ui.jqgrid.css?0820" rel="stylesheet">
     <link href="../../static/hplus/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-
+    <link href="../../static/hplus/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <style>
         .jqGrid_wrapper{background: white;}
         textarea{ resize:none;}
@@ -50,6 +50,49 @@
             window.location.reload();
         }
     </script>
+    <style type="text/css">
+        .venus-menu {
+            width: 100%;
+            padding: 0;
+            position: relative;
+            float: left;
+            list-style: none;
+            box-shadow: 0 0px 0px #dedede;
+            margin-left:0px; width: 900px;background: url(../image/index/top_02.jpg) no-repeat;
+            border:0px solid red;height:30px;
+            padding: 9px 0 0px; font-size: 14.25px; font-family: "Calibri";margin-top: 49px;
+        }
+        .venus-menu li {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            float: left;
+            top:-8px;
+            line-height: 38px;
+            text-align:left;
+            position: relative;border:0px solid red;
+        }
+        .meunline{width:2px; height:40px;}
+
+
+        .venus-menu > li > a {
+            padding: 0px 27px;
+            font-size: 17px;
+            font-weight:bold;
+            color: #FFF;
+            line-height: 38px;
+            text-decoration: none;
+            display: block;
+            -webkit-transition: color 0.2s linear, background 0.2s linear;
+            -moz-transition: color 0.2s linear, background 0.2s linear;
+            -o-transition: color 0.2s linear, background 0.2s linear;
+            transition: color 0.2s linear, background 0.2s linear;
+        }
+        .venus-menu li:hover > a, .venus-menu li.active a {
+            background-color:#053fad;
+            color: Yellow;
+        }
+    </style>
 </head>
 
 <body class="gray-bg">
@@ -83,24 +126,26 @@
 </div>--%>
 <div class="wrapper wrapper-content  animated fadeInRight">
     <div class="row">
-        <form  method="post" name="shaixuanform" id="shaixuanform" class="pull-right mail-search">
-            <div class="row" >
-                <div class="col-sm-12">
-                    <div class="col-sm-10">
-                        <div class="input-group" style="width: 300px;margin-right:10px">
-                            <input type="text" class="form-control" id="baidu" name="keyword">
-                            <div class="input-group-btn">
-                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                </ul>
+        <div class="col-sm-12" style="margin-right: 60px">
+            <form  method="post" name="shaixuanform" id="shaixuanform" class="pull-right mail-search">
+                <div class="row" >
+                    <div class="col-sm-12">
+                        <div class="col-sm-10">
+                            <div class="input-group" style="width: 300px;margin-right:10px">
+                                <input type="text" class="form-control" id="baidu" name="keyword">
+                                <div class="input-group-btn">
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="input-group-btn col-sm-2" style="position:relative;z-index:9999;">
-                        <a onclick="screeningSp3()" class="btn btn-sm btn-primary" style="height: 33px;width: 50px">搜索</a>
+                        <div class="input-group-btn col-sm-2" style="position:relative;z-index:9999;">
+                            <a onclick="screeningSp3()" class="btn btn-sm btn-primary" style="height: 33px;width: 50px">搜索</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
         <div class="col-sm-12">
             <div class="ibox-content">
                 <div class="jqGrid_wrapper">
@@ -143,12 +188,12 @@
             datatype: "json",
             autoheight: true,
             autowidth: true,
-            height:$(window).height()-400,
+            height:500,
             shrinkToFit: true,
             rownumbers: true,
             rowNum: 10,
-            rowList: [10, 50, 100],
-            colNames: ['ID','客户名称','业务员姓名','是否是老客户','录入人','复核人','单据编号','操作'],
+            rowList: [10, 15, 20],
+            colNames: ['ID','单据编号','客户名称','业务员姓名','是否是老客户','录入人','复核人','运费','是否回款','操作'],
             colModel: [
                 {
                     name: 'id',
@@ -156,6 +201,13 @@
                     hidden:true,
                     width: 150
                 },
+                {
+                    name: 'documentNumber',
+                    index: 'documentNumber',
+                    width: 60
+
+                },
+
                 {
                     name: 'customerName',
                     index: 'customerName',
@@ -170,7 +222,14 @@
                 {
                     name: 'whether',
                     index: 'whether',
-                    width: 60
+                    width: 60,
+                    formatter: function (cellvalue, options, rowdata) {
+                        if(cellvalue==0){
+                            return '<p>否</p>';
+                        }else {
+                            return "<p>是</p>";
+                        }
+                    }
                 },
                 {
                     name: 'entryPersonnel',
@@ -183,25 +242,42 @@
                     width: 80
                 },
                 {
-                    name: 'documentNumber',
-                    index: 'documentNumber',
-                    width: 60
-
+                    name: 'freightAmount',
+                    index: 'freightAmount',
+                    width: 80
+                },
+                {
+                    name: 'receiveState',
+                    index: 'receiveState',
+                    width: 80,
+                    formatter: function (cellvalue, options, rowdata) {
+                        if(cellvalue==0){
+                            return '未回款';
+                        }else {
+                            return '已回款';
+                        }
+                    }
                 },
                 {
                     name: '#',
                     index: '#',
                     width: 60,
+                    align : 'center',
                     sortable: false,
                     formatter: function (cellvalue, options, rowdata) {
-                        var code = rowdata.product_code;
+                        var code = rowdata.documentNumber;
+
                         var id=rowdata.id;
+                        console.log(code+"&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"+id);
                         var useId = '${userId}'.valueOf();
                         var product_type = rowdata.product_type;
-                        htm2 = '<a href="<%=path%>/product/kPicture?code='+code+'&jude=1" class="btn btn-xs btn-outline btn-success">产品信息</a>'
-                            +'<a href="<%=path%>/bsbController/bsblist?code='+code+','+id+'&product_type='+product_type+'">' +
-                            '<button type="button" class="btn btn-xs btn-outline btn-primary">进销存</button></a>';
-                            return  htm2;
+                        htm2 = '<a href="<%=path%>/product/kPicture?code='+code+'&jude=1" class="btn btn-xs btn-outline btn-success">添加收费单</a>';
+                        return  '<select onchange="window.location=this.value;" style="border:none;color: #00a1e9">' +
+                                '<option>选择付款方式</option>' +
+                                '<option value="/index/cash?nmgb='+code+'">现金</option>' +
+                                '<option value="/index/elect?nmgb='+code+'">电汇</option>' +
+                                '<option value="/index/accept?nmgb='+code+'">承兑</option>' +
+                                 '</select>';
                     }
                 }
             ],
@@ -210,26 +286,14 @@
             hidegrid: false,
             onSelectRow: function (rowid) {
                 var data = $('#table_list_1').jqGrid('getRowData',rowid);
-                console.log(data.product_code);
+                console.log(data);
                 $('#id').val(data.id);//编码
-                $('#sproduct_code').val(data.product_code);//编码
-                $('#prcode').val(data.product_code);//编码
-                $('#syouxiao').val(data.youxiao);//有效
-                $('#ss_class').val(data.s_class);//类别
-                $('#sbrand').val(data.brand);//品牌
-                $('#sattribute').val(data.attribute);//属性
-                $('#sproduct_type').val(data.product_type);//型号
-                $('#sstart_time').val(data.start_time);//上市时间
-                $('#send_time').val(data.end_time);//停产时间
-                $('#snew_time').val(data.new_time);//新品时间
-                $('#sfprice').val(data.fprice);//官方价格1
-                $('#ssprice').val(data.sprice);//官方价格2
-                $('#sparameter_one').val(data.parameter_one);//基本参数1
-                $('#sparameter_two').val(data.parameter_two);//基本参数2
-                $('#sparameter_three').val(data.parameter_three);//基本参数3
-                $('#sparameter_four').val(data.parameter_four);//基本参数4
-                $('#sbak').val(data.bak);//基本参数4
-
+                $('#customerName').val(data.customerName);//编码
+                $('#salesmanName').val(data.salesmanName);//编码
+                $('#whether').val(data.whether);//有效
+                $('#entryPersonnel').val(data.entryPersonnel);//类别
+                $('#reviewOfficer').val(data.reviewOfficer);//品牌
+                $('#documentNumber').val(data.documentNumber);//属性
             },
             gridComplete: function(){
                 $('button[name="delete"]').click(function(){
@@ -301,7 +365,7 @@
     };
 </script>
 <!-- layerDate plugin javascript -->
-<script src="<%=path%>/static/hplus/js/plugins/layer/laydate/laydate.js"></script>
+<script src="../../static/hplus/js/plugins/layer/laydate/laydate.js"></script>
 <script type="text/javascript">
     //百度搜索测试
 
@@ -365,5 +429,14 @@
         event: 'focus' //响应事件。如果没有传入event，则按照默认的click
     });
 </script>
+<!-- 全局js -->
+<%--<script src="../../static/hplus/js/jquery.min.js?v=2.1.4"></script>--%>
+<%--<script src="../../static/hplus/js/bootstrap.min.js?v=3.3.6"></script>--%>
+<%--<script src="../../static/hplus/js/plugins/metisMenu/jquery.metisMenu.js"></script>--%>
+<%--<script src="../../static/hplus/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>--%>
+<%--<script src="../../static/hplus/js/plugins/layer/layer.min.js"></script>--%>
+<%--<script src="../../static/hplus/js/hplus.js?v=4.1.0"></script>--%>
+<%--<script type="text/javascript" src="../../static/hplus/js/contabs.js"></script>--%>
+<%--<script src="../../static/hplus/js/plugins/pace/pace.min.js"></script>--%>
 </body>
 </html>

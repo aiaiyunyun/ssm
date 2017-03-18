@@ -1,6 +1,7 @@
 package com.soecode.lyf.dao;
 
 import com.soecode.lyf.entity.SalesOrders;
+import com.soecode.lyf.entity.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -24,4 +25,6 @@ public interface OrderDao {
     List<SalesOrders> selectList(@Param("firstResult")Integer firstResult,@Param("maxResults")Integer maxResults);
 
     List<SalesOrders> getTotal();
+
+    List<User> selectUser(@Param("name")String name,@Param("pwd")String pwd);
 }

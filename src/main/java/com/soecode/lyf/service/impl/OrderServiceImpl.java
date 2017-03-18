@@ -2,6 +2,7 @@ package com.soecode.lyf.service.impl;
 
 import com.soecode.lyf.dao.OrderDao;
 import com.soecode.lyf.entity.SalesOrders;
+import com.soecode.lyf.entity.User;
 import com.soecode.lyf.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,4 +49,10 @@ public class OrderServiceImpl implements OrderService {
     public List<SalesOrders> getTotal() {
         return orderDao.getTotal();
     }
+
+    @Override
+    public List<User> selectUser(String name, String pwd) {
+        return orderDao.selectUser(name,pwd);
+    }
+
 }

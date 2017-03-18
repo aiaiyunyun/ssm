@@ -32,47 +32,49 @@
     <script src="../../statics2/saas/scm/app2_release/js/common/plugins/jquery.dialog.js?self=true&ver=20150522"></script>
 
     <style>
-        .wrapper{background: white;}
+        .jqGrid_wrapper{background: white;}
         textarea{ resize:none;}
         input{vertical-align: middle;}
     </style>
-    <link href="../../statics2/css/green/bills.css?ver=20150522" rel="stylesheet" type="text/css">
-    <style>
-        #barCodeInsert{margin-left: 10px;font-weight: 100;font-size: 12px;color: #fff;background-color: #B1B1B1;padding: 0 5px;border-radius: 2px;line-height: 19px;height: 20px;display: inline-block;}
-        #barCodeInsert.active{background-color: #23B317;}
-    </style>
+
+</head>
+
+
+
+<link href="../../statics2/css/green/bills.css?ver=20150522" rel="stylesheet" type="text/css">
+<style>
+    #barCodeInsert{margin-left: 10px;font-weight: 100;font-size: 12px;color: #fff;background-color: #B1B1B1;padding: 0 5px;border-radius: 2px;line-height: 19px;height: 20px;display: inline-block;}
+    #barCodeInsert.active{background-color: #23B317;}
+</style>
 </head>
 
 <body>
-<div class="wrapper" style="height: 100%">
+<div class="wrapper">
     <span id="config" class="ui-icon ui-state-default ui-icon-config"></span>
     <div class="mod-toolbar-top mr0 cf dn" id="toolTop"></div>
-
     <div class="bills cf">
         <div class="con-header">
             <div class="row-item" style="text-align: center">
-                <h1 style="font-size: 23px">唐山军荣铝业有限公司销货单</h1>
+                <h1 style="font-size: 23px">唐山军荣铝业有限公司客户承兑付款单</h1>
             </div>
             <dl class="cf">
-                <dd class="pct25">
-                    <label>客户名称：</label>
-                    <span class="ui-combo-wrap" >
-                          <input type="text" name="" class="input-txt ui-input" autocomplete="off" id="customer">
-                          </span>
+                <dd class="pct25" hidden>
+                    <label hidden>ID</label>
+                    <input type="text"  class="input-txt ui-input" autocomplete="off" id="customer" value="${nmgb}" hidden>
                 </dd>
-                <dd class="pct20 tc">
-                    <label>业务员姓名：</label>
-                    <span class="ui-combo-wrap">
-                          <input type="text" name="" class="input-txt" autocomplete="off" value="" data-ref="date" id="sales_ww">
-                          </span>
-                </dd>
-                <dd class="pct20 tc">
-                    <label>发货日期：</label>
+
+
+                <dd class="pct20">
+                    <label>付款日期：</label>
                     <input type="text" id="date" class="ui-input ui-datepicker-input" value="2015-06-08">
                 </dd>
-                <dd id="11" class="pct20">
+                <dd id="11" class="pct25">
                     <label>单据编号:</label>
-                    <input id="billNo" type="text" class="input-txt ui-input" autocomplete="off" value="${num}">
+                   <input id="billNo" type="text" class="input-txt ui-input" autocomplete="off" value="${num}">
+                </dd>
+                <dd id="" class="pct25">
+                    <label>销货单编号:</label>
+                    <input id="selectNo" type="text" class="input-txt ui-input" autocomplete="off" value="${nmgb}">
                 </dd>
                 <!-- <dd id="classes" class="pct15 tr">
                   <label class="radio">
@@ -90,11 +92,11 @@
             <div id="page"></div>
         </div>
         <div class="con-footer cf">
-            <div class="mb10">
+            <%--<div class="mb10">
                 <textarea type="text" id="note" class="ui-input ui-input-ph">暂无备注信息</textarea>
-            </div>
+            </div>--%>
             <ul id="amountArea" class="cf">
-                <li>
+                <%--<li>
                     老客户:
                     <input type="radio" name="regular_customer" class="regular_customer"  value="1">是&nbsp&nbsp&nbsp
                     <input type="radio" name="regular_customer" class="regular_customer"  value="0">否
@@ -116,7 +118,7 @@
                 <li>
                     <label>胶圈总价：</label>
                     <input type="text" id="apron_price"  class="input-txt ui-input" autocomplete="off">
-                </li>
+                </li>--%>
                 <li>
                     <label>录入人员：</label>
                     <input type="text" id="input_man"  class="input-txt ui-input" autocomplete="off">
@@ -180,7 +182,7 @@
     <div id="storageBox" class="shadow target_box dn">
     </div>
 </div>
-<script src="../../statics2/js/dist/sales.js?ver=20150522"></script>
+<script src="../../statics2/js/dist/acceptBill.js?ver=20150522"></script>
 <script src="../../static/sales/sales_input.js"></script>
 <script type="text/javascript">
     var DOMAIN = document.domain;

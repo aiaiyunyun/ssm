@@ -2,8 +2,10 @@ package com.soecode.lyf.web;
 
 import com.soecode.lyf.entity.JqGridPageView;
 import com.soecode.lyf.entity.SalesOrders;
+import com.soecode.lyf.entity.User;
 import com.soecode.lyf.entity.vo.JsonVo;
 import com.soecode.lyf.service.OrderService;
+import com.soecode.lyf.util.Md5;
 import com.soecode.lyf.web.base.BaseController;
 
 import net.sf.json.JSONArray;
@@ -23,6 +25,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static com.soecode.lyf.util.Md5.convertMD5;
+
 /**
  * Created by lsd on 2017-03-13.
  */
@@ -38,9 +42,50 @@ public class OrderController extends BaseController{
     //进入主页
     @ResponseBody
     @RequestMapping(value = "/main", method = RequestMethod.GET)
-    private ModelAndView main() {
+    private ModelAndView main(String str){
+        String[] kk = str.split("lsy992");
+       /* String name = convertMD5(convertMD5(kk[0]));
+        String pwd = convertMD5(convertMD5(kk[1]));*/
+        String name =kk[0];
+        String pwd = kk[1];
+        System.out.println(name+pwd);
+        ModelAndView mv = new ModelAndView();
+        List<User> b = orderService.selectUser(name,pwd);
+        if(name.equals(b.get(0).getUsername())&&pwd.equals(b.get(0).getPassword())){
+            mv.setViewName("admin/index");
+        }else {
+            mv.setViewName("redirect:/#");
+        }
+        return mv;
+    }
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    private ModelAndView index(String name,String pwd) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("admin/index");
+        return mv;
+    }
+    @RequestMapping(value = "/index1", method = RequestMethod.GET)
+    private ModelAndView index1(String name,String pwd) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("admin/index1");
+        return mv;
+    }
+    @RequestMapping(value = "/index2", method = RequestMethod.GET)
+    private ModelAndView index2(String name,String pwd) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("admin/index2");
+        return mv;
+    }
+    @RequestMapping(value = "/index3", method = RequestMethod.GET)
+    private ModelAndView index3(String name,String pwd) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("admin/index3");
+        return mv;
+    }
+    @RequestMapping(value = "/index4", method = RequestMethod.GET)
+    private ModelAndView index4(String name,String pwd) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("admin/index4");
         return mv;
     }
     //进入销货单
@@ -52,36 +97,39 @@ public class OrderController extends BaseController{
     }
     //进入承兑付款单
     @RequestMapping(value = "/accept", method = RequestMethod.GET)
-    private ModelAndView accept() {
+    private ModelAndView accept(String nmgb) {
         ModelAndView mv = new ModelAndView();
         SimpleDateFormat sf = new SimpleDateFormat("yyyyMMddhhmmss");
         Date data2 = new Date();
         String number = sf.format(data2);
         System.out.println(number);
+        mv.addObject("nmgb",nmgb);
         mv.addObject("num",number);
-        mv.setViewName("order/acceptance");
+        mv.setViewName("order/newAccept");
         return mv;
     }
     //进入现金付款单
     @RequestMapping(value = "/cash", method = RequestMethod.GET)
-    private ModelAndView cash() {
+    private ModelAndView cash(String nmgb) {
         ModelAndView mv = new ModelAndView();
         SimpleDateFormat sf = new SimpleDateFormat("yyyyMMddhhmmss");
         Date data2 = new Date();
         String number = sf.format(data2);
         System.out.println(number);
+        mv.addObject("nmgb",nmgb);
         mv.addObject("num",number);
-        mv.setViewName("order/cashPrice");
+        mv.setViewName("order/newCash");
         return mv;
     }
     //进入电汇付款单
     @RequestMapping(value = "/elect", method = RequestMethod.GET)
-    private ModelAndView elect() {
+    private ModelAndView elect(String nmgb) {
         ModelAndView mv = new ModelAndView();
         SimpleDateFormat sf = new SimpleDateFormat("yyyyMMddhhmmss");
         Date data2 = new Date();
         String number = sf.format(data2);
         System.out.println(number);
+        mv.addObject("nmgb",nmgb);
         mv.addObject("num",number);
         mv.setViewName("order/electPrice");
         return mv;
@@ -104,6 +152,7 @@ public class OrderController extends BaseController{
         mv.setViewName("order/allList");
         return mv;
     }
+    @ResponseBody
     @RequestMapping(value = "/selectList")
     public JqGridPageView<SalesOrders> selectList(HttpServletRequest request)throws Exception{
         JqGridPageView<SalesOrders> json = new JqGridPageView<SalesOrders>();
