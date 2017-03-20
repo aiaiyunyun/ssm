@@ -20,7 +20,7 @@ public interface OrderService {
     void saveProduct(String goods, String specificationModel, String qty, String price,
                      String amount, String descrip,String criate,String item_type,String pin_ID);
 
-    List<SalesOrders> selectList(Integer firstResult,Integer maxResults);
-    List<SalesOrders> getTotal();
+    List<SalesOrders> selectList(Integer firstResult,Integer maxResults,String keyword);
+    List<SalesOrders> getTotal(String keyword);
     List<User> selectUser(String name,String pwd);
 }

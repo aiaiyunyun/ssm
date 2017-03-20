@@ -41,13 +41,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<SalesOrders> selectList(Integer firstResult,Integer maxResults) {
-        return orderDao.selectList(firstResult,maxResults);
+    public List<SalesOrders> selectList(Integer firstResult,Integer maxResults,String keyword) {
+        return orderDao.selectList(firstResult,maxResults,keyword);
     }
 
     @Override
-    public List<SalesOrders> getTotal() {
-        return orderDao.getTotal();
+    public List<SalesOrders> getTotal(String keyword) {
+        return orderDao.getTotal(keyword);
     }
 
     @Override

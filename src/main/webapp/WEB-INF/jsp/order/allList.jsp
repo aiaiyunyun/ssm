@@ -111,9 +111,9 @@
                                 </div>
                             </div>
                         </div>
-                       <%-- <div class="input-group-btn col-sm-2" style="position:relative;z-index:9999;">
+                        <div class="input-group-btn col-sm-2" style="position:relative;z-index:9999;">
                             <a onclick="screeningSp3()" class="btn btn-sm btn-primary" style="height: 33px;width: 50px">搜索</a>
-                        </div>--%>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -378,7 +378,8 @@
 <script type="text/javascript">
     function screeningSp3(){
         var data = $('#shaixuanform').serialize();
-        var url  = '<%=path%>/product/getAll?'+data;
+        console.log(data);
+        var url  = '<%=path%>/index/selectList?'+data;
         $("#table_list_1").jqGrid('setGridParam', {
             url : url,
             page : 1 });

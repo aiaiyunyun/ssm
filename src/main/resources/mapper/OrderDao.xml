@@ -117,23 +117,32 @@
 	</select>
 
 	<select id="selectList" resultType="SalesOrders" parameterType="List">
-		<!-- 具体的sql -->
+		<!-- 具体的sql keyword-->
 		SELECT A.*
-			FROM
-			(
-				SELECT
-				*
-				FROM
-				sales_orders
-				WHERE del_status = 1
-			)A
+		FROM
+		(
+		SELECT
+		*
+		FROM
+		sales_orders
+		WHERE
+		entry_personnel LIKE '%${keyword}%'
+		OR document_number LIKE '%${keyword}%'
+		OR salesman_name LIKE '%${keyword}%'
+		OR customer_name LIKE '%${keyword}%'
+		OR review_officer LIKE '%${keyword}%'
+		)A
 		limit #{firstResult},#{maxResults}
 	</select>
 	<select id="getTotal" resultType="SalesOrders" parameterType="List">
 		<!-- 具体的sql -->
 		SELECT	*
 		FROM
-		sales_orders WHERE del_status = 1
+		sales_orders WHERE entry_personnel LIKE '%${keyword}%'
+		OR document_number LIKE '%${keyword}%'
+		OR salesman_name LIKE '%${keyword}%'
+		OR customer_name LIKE '%${keyword}%'
+		OR review_officer LIKE '%${keyword}%'
 	</select>
 	<select id="selectUser" resultType="User" parameterType="List">
 		<!-- 具体的sql -->

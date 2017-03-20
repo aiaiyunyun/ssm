@@ -22,9 +22,9 @@ public interface OrderDao {
 
     SalesOrders selectIdByNumber(String documentNumber);
 
-    List<SalesOrders> selectList(@Param("firstResult")Integer firstResult,@Param("maxResults")Integer maxResults);
+    List<SalesOrders> selectList(@Param("firstResult")Integer firstResult,@Param("maxResults")Integer maxResults,@Param("keyword")String keyword);
 
-    List<SalesOrders> getTotal();
+    List<SalesOrders> getTotal(@Param("keyword")String keyword);
 
     List<User> selectUser(@Param("name")String name,@Param("pwd")String pwd);
 }

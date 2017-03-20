@@ -142,14 +142,15 @@ public class OrderController extends BaseController{
     }
     @ResponseBody
     @RequestMapping(value = "/selectList")
-    public JqGridPageView<SalesOrders> selectList(HttpServletRequest request)throws Exception{
+    public JqGridPageView<SalesOrders> selectList(HttpServletRequest request,String keyword)throws Exception{
         JqGridPageView<SalesOrders> json = new JqGridPageView<SalesOrders>();
+        System.out.println(keyword);
         Integer page = Integer.valueOf(request.getParameter("page"));
         Integer rows = Integer.valueOf(request.getParameter("rows"));
         Integer firstResult = (page-1)*rows;
         Integer maxResults = page*rows;
-        List<SalesOrders> salesOrders = orderService.selectList(firstResult,maxResults);
-        List<SalesOrders> bb=orderService.getTotal();
+        List<SalesOrders> salesOrders = orderService.selectList(firstResult,maxResults,keyword);
+        List<SalesOrders> bb=orderService.getTotal(keyword);
         int total = bb.size();
         json.setRows(salesOrders);
         json.setMaxResults(rows);
