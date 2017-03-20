@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.soecode.lyf.dao.PriceDao">
+
+	<insert id="saveCashPrice">
+		INSERT IGNORE INTO cash_payment_order(
+		payment_customer_name,
+		cash_amount,
+		customer_contact,
+		pin_ID
+		)VALUES(
+		#{payment_customer_name},
+		#{cash_amount},
+		#{customer_contact},
+		#{pin_ID}
+		)
+	</insert>
+
+	<insert id="saveElectedPrice">
+		INSERT IGNORE INTO telegraphic_money_order(
+		payment_customer_name,
+		telegraphic_transfer_amount,
+		customer_contact,
+		pin_ID
+		)VALUES(
+		#{payment_customer_name},
+		#{cash_amount},
+		#{customer_contact},
+		#{pin_ID}
+		)
+	</insert>
+
+	<insert id="saveAcceptPrice">
+		INSERT IGNORE INTO acceptance_bill(
+		payment_customer_name,
+		acceptance_amount,
+		date_acceptance,
+		acceptance_number,
+		customer_contact,
+		pin_ID
+		)VALUES(
+		#{payment_customer_name},
+		#{acceptance_amount},
+		CAST(#{date_acceptance} AS DATETIME),
+		#{acceptance_number},
+		#{customer_contact},
+		#{pin_ID}
+		)
+	</insert>
+
+
+	<insert id="saveAllHead">
+		INSERT IGNORE INTO all_head_payment(
+		document_number,
+		payment_date,
+		brokerage,
+		input_man,
+		creation_date,
+		document_type,
+		sales_order
+		)VALUES(
+		#{document_number},
+		CAST(#{payment_date} AS DATETIME),
+		#{brokerage},
+		#{input_man},
+		CAST(#{creation_date} AS DATETIME),
+		#{document_type},
+		#{sales_order}
+		)
+	</insert>
+	<select id="selectIdByNumber" resultType="AllHead" parameterType="string">
+		<!-- 具体的sql -->
+		SELECT
+		id
+		FROM
+		all_head_payment
+		WHERE
+		document_number = #{documentNumber}
+	</select>
+</mapper>

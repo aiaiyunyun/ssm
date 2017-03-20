@@ -60,7 +60,7 @@
 
         </div>
         <div class="row J_mainContent" id="content-main"style="overflow: hidden">
-            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/index/goAddSale" frameborder="0" data-id="/index/saleput" seamless></iframe>
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="<%=path%>/index/goAddSale" frameborder="0" data-id="<%=path%>/index/saleput" seamless></iframe>
         </div>
     </div>
 </div>

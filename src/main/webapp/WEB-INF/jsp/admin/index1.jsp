@@ -465,7 +465,7 @@
 
 
         <div class="row J_mainContent" id="content-main">
-            <iframe class="J_iframe" name="mainFrame" width="100%" height="100%" src="/index/saleput" frameborder="0" data-id="index_v1.html" seamless></iframe>
+            <iframe class="J_iframe" name="mainFrame" width="100%" height="100%" src="<%=path%>/index/saleput" frameborder="0" data-id="index_v1.html" seamless></iframe>
         </div>
       <%--  <div class="footer">
             <div class="pull-right">

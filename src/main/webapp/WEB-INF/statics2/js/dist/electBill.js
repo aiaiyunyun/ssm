@@ -270,7 +270,7 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 align: "center"
             }, {
                 name: "goods",
-                label: "付款客户名称",
+                label: "产品类型",
                 width: 300,
                 classes: "goods",
                 formatter: c,
@@ -1300,12 +1300,9 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                             }
                         }
                         f = {
-                            goods:h.goods,//产品名称
-                            specificationModel:h.specificationModel,//规格型号
-                            description:h.description,//备注
-                            qty: h.qty,//数量
-                            price: h.price,//价格
-                            amount: h.amount,//金额
+                            goods:h.goods,//产品类型
+                            description:h.description,//客户联系方式
+                            price: h.price,//电汇金额
                         }, SYSTEM.ISWARRANTY && $.extend(!0, f, {
                             batch: h.batch || "",
                             prodDate: h.prodDate || "",
@@ -1341,53 +1338,16 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
             if (f.length > 0) {
                 var g = $.trim(b.$_note.val()),
                     h = {
-                        type_product:$(".type_product").val(),//产品类型
-                        freight:$("#freight").val(),//运费
-                        apron_num:$("#apron_num").val(),//胶圈数目
-                        apron_price:$("#apron_price").val(),//胶圈总价
-                        custmerName: $("#customer").val(),//客户名称
-                        salesName:  $("#sales_ww").val(),//售货员姓名
                         date: $.trim(b.$_date.val()),//发货日期
                         billNo: $("#billNo").val(),//账单号
-                        regular_customer:$(".regular_customer").val(),//是否是老客户
+                        selectNo: $("#selectNo").val(),//账单号
                         input_man:$("#input_man").val(),//录入人
                         reviewer:$("#reviewer").val(),//审核人
                         transType: originalData.transType,
-                        entries: f,
-                        // totalQty: $("#grid").jqGrid("footerData", "get").qty.replace(/,/g, ""),
-                        // totalAmount: $("#grid").jqGrid("footerData", "get").amount.replace(/,/g, ""),
-                        // description: g === b.$_note[0].defaultValue ? "" : g,
+                        entries: f
                     };
-				/*if (h.disRate < 0) return defaultPage.Public.tips({
-				 type: 2,
-				 content: "优惠率不能为负数！"
-				 }), !1;*/
-				/*if (h.disAmount < 0) return defaultPage.Public.tips({
-				 type: 2,
-				 content: "优惠金额不能为负数！"
-				 }), !1;*/
-				/*if (taxRequiredCheck && (h.totalTax = $("#grid").jqGrid("footerData", "get").tax.replace(/,/g, ""), h.totalTaxAmount = $("#grid").jqGrid("footerData", "get").taxAmount.replace(/,/g, "")), requiredMoney) {
-				 h.accId = b.accountCombo.getValue(), h.accounts = b.$_accountInfo.data("accountInfo");
-				 var i = "150601" == h.transType ? "收款额" : "退款额";
-				 if (0 !== Number(h.rpAmount) && 0 === h.accId) return parent.Public.tips({
-				 type: 1,
-				 content: i + "不为空时，请选择结算账户！"
-				 }), !1;
-				 if (0 === Number(h.rpAmount) && 0 !== h.accId) return parent.Public.tips({
-				 type: 1,
-				 content: "结算账户不为空时，需要输入" + i + "！"
-				 }), !1;
-				 if (-1 === h.accId && !h.accounts) return parent.Public.tips({
-				 type: 1,
-				 content: "请检查账户信息是否正确！"
-				 }), !1
-				 }*/
                 return h
             }
-			/*return parent.Public.tips({
-			 type: 2,
-			 content: "商品信息不能为空！"
-			 }), $("#grid").jqGrid("editCell", 1, 2, !0), !1*/
         }
     },
     hasLoaded = !1,

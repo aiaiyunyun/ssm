@@ -22,14 +22,14 @@
     <meta name="keywords" content="科研项目管理">
     <meta name="description" content="科研项目管理">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
-    <link href="../../statics2/saas/scm/app2_release/css/common.css?ver=20150522" rel="stylesheet" type="text/css">
-    <link href="../../statics2/saas/scm/app2_release/css/green/ui.min.css?ver=20150522" rel="stylesheet">
-    <script src="../../statics2/saas/scm/app2_release/js/common/libs/jquery/jquery-1.10.2.min.js"></script>
-    <script src="../../statics2/saas/scm/app2_release/js/common/libs/json3.min.js"></script>
-    <script src="../../statics2/saas/scm/app2_release/js/common/common.js?ver=20150522"></script>
-    <script src="../../statics2/saas/scm/app2_release/js/common/grid.js?ver=20150522"></script>
-    <script src="../../statics2/saas/scm/app2_release/js/common/plugins.js?ver=20150522"></script>
-    <script src="../../statics2/saas/scm/app2_release/js/common/plugins/jquery.dialog.js?self=true&ver=20150522"></script>
+    <link href="<%=path%>/statics2/saas/scm/app2_release/css/common.css?ver=20150522" rel="stylesheet" type="text/css">
+    <link href="<%=path%>/statics2/saas/scm/app2_release/css/green/ui.min.css?ver=20150522" rel="stylesheet">
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/libs/jquery/jquery-1.10.2.min.js"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/libs/json3.min.js"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/common.js?ver=20150522"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/grid.js?ver=20150522"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/plugins.js?ver=20150522"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/plugins/jquery.dialog.js?self=true&ver=20150522"></script>
 
     <style>
         .jqGrid_wrapper{background: white;}
@@ -62,28 +62,18 @@
                     <label hidden>ID</label>
                     <input type="text"  class="input-txt ui-input" autocomplete="off" id="customer" value="${nmgb}" hidden>
                 </dd>
-
-
                 <dd class="pct20">
                     <label>付款日期：</label>
                     <input type="text" id="date" class="ui-input ui-datepicker-input" value="2015-06-08">
                 </dd>
                 <dd id="11" class="pct25">
                     <label>单据编号:</label>
-                   <input id="billNo" type="text" class="input-txt ui-input" autocomplete="off" value="${num}">
+                    <input id="billNo" type="text" class="input-txt ui-input" autocomplete="off" value="${num}">
                 </dd>
                 <dd id="" class="pct25">
                     <label>销货单编号:</label>
                     <input id="selectNo" type="text" class="input-txt ui-input" autocomplete="off" value="${nmgb}">
                 </dd>
-                <!-- <dd id="classes" class="pct15 tr">
-                  <label class="radio">
-                    <input type="radio" name="classes" value="150601">
-                    销货</label>
-                  <label class="radio">
-                    <input type="radio" name="classes" value="150602">
-                    退货</label>
-                </dd> -->
             </dl>
         </div>
         <div class="grid-wrap">
@@ -182,8 +172,8 @@
     <div id="storageBox" class="shadow target_box dn">
     </div>
 </div>
-<script src="../../statics2/js/dist/acceptBill.js?ver=20150522"></script>
-<script src="../../static/sales/sales_input.js"></script>
+<script src="<%=path%>/statics2/js/dist/acceptBill.js?ver=20150522"></script>
+<script src="<%=path%>/static/sales/sales_input.js"></script>
 <script type="text/javascript">
     var DOMAIN = document.domain;
     var WDURL = "";

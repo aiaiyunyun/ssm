@@ -1,10 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lsd
-  Date: 2017-03-13
-  Time: 15:55
-  To change this template use File | Settings | File Templates.
---%>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://"
+            + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.security.MessageDigest"%>
 <html>
@@ -28,7 +27,7 @@
             background-color: white;
         }
         .bg{
-            background:url(../statics2/login/Images/8.jpg)no-repeat;
+            background:url(<%=path%>/statics2/login/Images/8.jpg)no-repeat;
             overflow-y: hidden;
             overflow-x: hidden;
             width: 100%;
@@ -46,13 +45,13 @@
                 <input class="bb" type="text" value="" name="amount" id="amount"><br/><br/>
                 <label>密码:</label>
                 <input class="bb" type="password" value="" name="password" id="password"><br/><br/>
-                <a type="button" onclick="ccc()" ><img src="../statics2/login/Images/loginbtn.png" style="width: 200px"></a>
+                <a type="button" onclick="ccc()" ><img src="<%=path%>/statics2/login/Images/loginbtn.png" style="width: 200px"></a>
             </from>
         </div>
     </div>
 </div>
-<script src="../statics2/saas/scm/app2_release/js/common/libs/jquery/jquery-1.10.2.min.js"></script>
-<script src="../statics2/js/md5.js"></script>
+<script src="<%=path%>/statics2/saas/scm/app2_release/js/common/libs/jquery/jquery-1.10.2.min.js"></script>
+<script src="<%=path%>/statics2/js/md5.js"></script>
 <script type="text/javascript">
     function ccc() {
         var name1 = $('#amount').val();
@@ -63,7 +62,7 @@
         var str = name+"lsy992"+hash;
         //解密
 //        str = b.decode(str);
-        var url  = '/index/main?str='+str;
+        var url  = '<%=path%>/index/main?str='+str;
         window.location.href = url;
     }
     function Base64() {

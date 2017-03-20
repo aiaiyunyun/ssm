@@ -10,12 +10,12 @@
     <div class="navbar-collapse collapse" id="navbar">
         <ul class="nav navbar-nav">
             <li class="active">
-                <a aria-expanded="false" role="button" href="/index/index"> 返回首页</a>
+                <a aria-expanded="false" role="button" href="<%=path%>/index/index"> 返回首页</a>
             </li>
             <li class="dropdown">
-                <a aria-expanded="false" role="button" href="/index/index1" class="dropdown-toggle" > 销货单 </a>
+                <a aria-expanded="false" role="button" href="<%=path%>/index/index1" class="dropdown-toggle" > 销货单 </a>
             </li>
-            <li class="dropdown">
+            <%--<li class="dropdown">
                 <a aria-expanded="false" role="button" href="/index/index2" class="dropdown-toggle" > 电汇付款单 </a>
             </li>
             <li class="dropdown">
@@ -23,7 +23,7 @@
             </li>
             <li class="dropdown">
                 <a aria-expanded="false" role="button" href="/index/index4" class="dropdown-toggle" > 现金付款单 </a>
-            </li>
+            </li>--%>
 
         </ul>
         <ul class="nav navbar-top-links navbar-right">

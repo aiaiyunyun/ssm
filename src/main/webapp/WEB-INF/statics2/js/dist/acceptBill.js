@@ -270,7 +270,7 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 align: "center"
             }, {
                 name: "goods",
-                label: "付款客户名称",
+                label: "产品类型",
                 width: 300,
                 classes: "goods",
                 formatter: c,
@@ -290,6 +290,13 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 name: "specificationModel",
                 label: "承兑汇票号",
                 width: 120,
+                fixed: !0,
+                align: "right",
+                editable: !0
+            },  {
+                name: "date_accept",
+                label: "承兑汇票到期日(格式YYYY-MM-DD)",
+                width: 200,
                 fixed: !0,
                 align: "right",
                 editable: !0
@@ -316,6 +323,26 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                     trigger: "ui-icon-triangle-1-s"
                 }
             }, {
+                name: "price",
+                label: "承兑金额(元)",
+                hidden: hiddenAmount,
+                width: 200,
+                fixed: !0,
+                align: "right",
+                formatter: "currency",
+                formatoptions: {
+                    showZero: !0,
+                    decimalPlaces: pricePlaces
+                },
+                editable: !0,
+                edittype: "custom",
+                editoptions: {
+                    custom_element: p,
+                    custom_value: q,
+                    handle: r,
+                    trigger: "ui-icon-triangle-1-s"
+                }
+            },  {
                 name: "unitId",
                 label: "单位Id",
                 hidden: !0
@@ -353,8 +380,8 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 name: "prodDate",
                 label: "承兑汇票到期日",
                 width: 90,
+                hidden:!0,
                 title: !1,
-                editable: !0,
                 edittype: "custom",
                 editoptions: {
                     custom_element: j,
@@ -370,9 +397,9 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 align: "left"
             }, {
                 name: "validDate",
-                label: "有效期至",
+                label: "承兑汇票到期日",
+                hidden:!0,
                 width: 90,
-                hidden: !0,
                 title: !1,
                 align: "left"
             }, {
@@ -386,27 +413,7 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                     decimalPlaces: qtyPlaces
                 },
                 editable: !0
-            }, {
-                name: "price",
-                label: "电汇金额",
-                hidden: hiddenAmount,
-                width: 200,
-                fixed: !0,
-                align: "right",
-                formatter: "currency",
-                formatoptions: {
-                    showZero: !0,
-                    decimalPlaces: pricePlaces
-                },
-                editable: !0,
-                edittype: "custom",
-                editoptions: {
-                    custom_element: p,
-                    custom_value: q,
-                    handle: r,
-                    trigger: "ui-icon-triangle-1-s"
-                }
-            }, {
+            },{
                 name: "discountRate",
                 label: "折扣率(%)",
                 width: 70,
@@ -457,7 +464,7 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                 editable: !0
             }, {
                 name: "taxRate",
-                label: "税率(%)",
+                label: "承兑汇票到期日",
                 hidden: hiddenAmount,
                 width: 70,
                 fixed: !0,
@@ -566,6 +573,7 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                                 unitId: h.unitId,
                                 unitName: h.mainUnit,
                                 isSerNum: h.isSerNum,
+                                date_accept:h.date_accept,
                                 serNumList: h.serNumList || h.invSerNumList
                             }, h);
                             Business.cacheManage.getGoodsInfoByNumber(i.number, function(a) {
@@ -1164,7 +1172,7 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
                     var d = THISPAGE.getPostData();
                     console.log("====================="+JSON.stringify(d));
                     d && ("edit" === originalData.stata && (d.id = originalData.id, d.stata = "edit"),
-						c.ajaxPost("index/addElect", {
+						c.ajaxPost("index/addAccept", {
                         postData: JSON.stringify(d)
                     },function(b) {
                             if (200 === b.status) {
@@ -1339,53 +1347,16 @@ var curRow, curCol, loading, SYSTEM = system = parent.SYSTEM,
             if (f.length > 0) {
                 var g = $.trim(b.$_note.val()),
                     h = {
-                        type_product:$(".type_product").val(),//产品类型
-                        freight:$("#freight").val(),//运费
-                        apron_num:$("#apron_num").val(),//胶圈数目
-                        apron_price:$("#apron_price").val(),//胶圈总价
-                        custmerName: $("#customer").val(),//客户名称
-                        salesName:  $("#sales_ww").val(),//售货员姓名
                         date: $.trim(b.$_date.val()),//发货日期
                         billNo: $("#billNo").val(),//账单号
-                        regular_customer:$(".regular_customer").val(),//是否是老客户
+                        selectNo: $("#selectNo").val(),//账单号
                         input_man:$("#input_man").val(),//录入人
                         reviewer:$("#reviewer").val(),//审核人
                         transType: originalData.transType,
-                        entries: f,
-                        // totalQty: $("#grid").jqGrid("footerData", "get").qty.replace(/,/g, ""),
-                        // totalAmount: $("#grid").jqGrid("footerData", "get").amount.replace(/,/g, ""),
-                        // description: g === b.$_note[0].defaultValue ? "" : g,
+                        entries: f
                     };
-				/*if (h.disRate < 0) return defaultPage.Public.tips({
-				 type: 2,
-				 content: "优惠率不能为负数！"
-				 }), !1;*/
-				/*if (h.disAmount < 0) return defaultPage.Public.tips({
-				 type: 2,
-				 content: "优惠金额不能为负数！"
-				 }), !1;*/
-				/*if (taxRequiredCheck && (h.totalTax = $("#grid").jqGrid("footerData", "get").tax.replace(/,/g, ""), h.totalTaxAmount = $("#grid").jqGrid("footerData", "get").taxAmount.replace(/,/g, "")), requiredMoney) {
-				 h.accId = b.accountCombo.getValue(), h.accounts = b.$_accountInfo.data("accountInfo");
-				 var i = "150601" == h.transType ? "收款额" : "退款额";
-				 if (0 !== Number(h.rpAmount) && 0 === h.accId) return parent.Public.tips({
-				 type: 1,
-				 content: i + "不为空时，请选择结算账户！"
-				 }), !1;
-				 if (0 === Number(h.rpAmount) && 0 !== h.accId) return parent.Public.tips({
-				 type: 1,
-				 content: "结算账户不为空时，需要输入" + i + "！"
-				 }), !1;
-				 if (-1 === h.accId && !h.accounts) return parent.Public.tips({
-				 type: 1,
-				 content: "请检查账户信息是否正确！"
-				 }), !1
-				 }*/
                 return h
             }
-			/*return parent.Public.tips({
-			 type: 2,
-			 content: "商品信息不能为空！"
-			 }), $("#grid").jqGrid("editCell", 1, 2, !0), !1*/
         }
     },
     hasLoaded = !1,

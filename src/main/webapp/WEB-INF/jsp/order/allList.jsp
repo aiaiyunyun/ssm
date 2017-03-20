@@ -18,17 +18,17 @@
     <meta name="keywords" content="科研项目管理">
     <meta name="description" content="科研项目管理">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
-    <link rel="shortcut icon" href="../../static/hplus/favicon.ico">
-    <link href="../../static/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="../../static/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="../../static/hplus/css/font-awesome.css?v=4.4.0" rel="stylesheet">
-    <link href="../../static/hplus/css/animate.css" rel="stylesheet">
-    <link href="../../static/hplus/css/style.css?v=4.1.0" rel="stylesheet">
-    <link href="../../static/hplus/css/plugins/toastr/toastr.min.css" rel="stylesheet">
-    <link href="../../static/hplus/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-    <link href="../../static/hplus/css/plugins/jqgrid/ui.jqgrid.css?0820" rel="stylesheet">
-    <link href="../../static/hplus/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-    <link href="../../static/hplus/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link rel="shortcut icon" href="<%=path%>/static/hplus/favicon.ico">
+    <link href="<%=path%>/static/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="<%=path%>/static/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="<%=path%>/static/hplus/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="<%=path%>/static/hplus/css/animate.css" rel="stylesheet">
+    <link href="<%=path%>/static/hplus/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="<%=path%>/static/hplus/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="<%=path%>/static/hplus/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="<%=path%>/static/hplus/css/plugins/jqgrid/ui.jqgrid.css?0820" rel="stylesheet">
+    <link href="<%=path%>/static/hplus/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="<%=path%>/static/hplus/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <style>
         .jqGrid_wrapper{background: white;}
         textarea{ resize:none;}
@@ -96,34 +96,6 @@
 </head>
 
 <body class="gray-bg">
-<%--<div class="row wrapper border-bottom white-bg page-heading">
-    <div class="col-sm-12">
-        <form  method="post" name="shaixuanform" id="shaixuanform" class="pull-right mail-search">
-            <div class="row" >
-                <div class="col-sm-12">
-                    <div class="col-sm-10">
-                        <div class="input-group" style="width: 300px;margin-right:10px">
-                            <input type="text" class="form-control" id="baidu" name="keyword">
-                            <div class="input-group-btn">
-                                &lt;%&ndash;<button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">&ndash;%&gt;
-                                &lt;%&ndash;<span class="caret"></span>&ndash;%&gt;
-                                &lt;%&ndash;</button>&ndash;%&gt;
-                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- /btn-group -->
-                    </div>
-                    <div class="input-group-btn col-sm-2" style="position:relative;z-index:9999;">
-                        <a onclick="screeningSp3()" class="btn btn-sm btn-primary" style="height: 33px;width: 50px">搜索</a>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-
-</div>--%>
 <div class="wrapper wrapper-content  animated fadeInRight">
     <div class="row">
         <div class="col-sm-12" style="margin-right: 60px">
@@ -139,9 +111,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="input-group-btn col-sm-2" style="position:relative;z-index:9999;">
+                       <%-- <div class="input-group-btn col-sm-2" style="position:relative;z-index:9999;">
                             <a onclick="screeningSp3()" class="btn btn-sm btn-primary" style="height: 33px;width: 50px">搜索</a>
-                        </div>
+                        </div>--%>
                     </div>
                 </div>
             </form>
@@ -160,24 +132,24 @@
 
 </div>
 <!-- 全局js -->
-<script src="../../static/hplus/js/jquery.min.js?v=2.1.4"></script>
-<script src="../../static/hplus/js/bootstrap.min.js?v=3.3.6"></script>
-<script src="../../static/hplus/js/plugins/peity/jquery.peity.min.js"></script>
-<script src="../../static/hplus/js/plugins/jqgrid/i18n/grid.locale-cn.js?0820"></script>
-<script src="../../static/hplus/js/plugins/jqgrid/jquery.jqGrid.min.js?0820"></script>
-<script src="../../static/hplus/js/plugins/jasny/jasny-bootstrap.min.js"></script>
-<script src="../../static/hplus/js/plugins/validate/jquery.validate.min.js"></script>
-<script src="../../static/hplus/js/plugins/validate/messages_zh.min.js"></script>
-<script src="../../static/hplus/js/demo/form-validate-demo.js"></script>
-<script src="../../static/js/jquery.tips.js"></script>
-<script src="../../static/hplus/js/plugins/dropzone/dropzone.js"></script>
-<script src="../../static/hplus/js/plugins/toastr/toastr.min.js"></script>
-<script src="../../static/hplus/js/plugins/datapicker/bootstrap-datepicker.js"></script>
-<script src="../../static/hplus/js/plugins/suggest/bootstrap-suggest.min.js"></script>
-<script src="../../static/hplus/js/plugins/datapicker/bootstrap-datepicker.js"></script>
-<script src="../../static/js/json2.js"></script>
-<script src="../../static/sales/sales_input.js"></script>
-<script src="../../static/hplus/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<script src="<%=path%>/static/hplus/js/jquery.min.js?v=2.1.4"></script>
+<script src="<%=path%>/static/hplus/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="<%=path%>/static/hplus/js/plugins/peity/jquery.peity.min.js"></script>
+<script src="<%=path%>/static/hplus/js/plugins/jqgrid/i18n/grid.locale-cn.js?0820"></script>
+<script src="<%=path%>/static/hplus/js/plugins/jqgrid/jquery.jqGrid.min.js?0820"></script>
+<script src="<%=path%>/static/hplus/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+<script src="<%=path%>/static/hplus/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="<%=path%>/static/hplus/js/plugins/validate/messages_zh.min.js"></script>
+<script src="<%=path%>/static/hplus/js/demo/form-validate-demo.js"></script>
+<script src="<%=path%>/static/js/jquery.tips.js"></script>
+<script src="<%=path%>/static/hplus/js/plugins/dropzone/dropzone.js"></script>
+<script src="<%=path%>/static/hplus/js/plugins/toastr/toastr.min.js"></script>
+<script src="<%=path%>/static/hplus/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<script src="<%=path%>/static/hplus/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<script src="<%=path%>/static/hplus/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<script src="<%=path%>/static/js/json2.js"></script>
+<script src="<%=path%>/static/sales/sales_input.js"></script>
+<script src="<%=path%>/static/hplus/js/plugins/suggest/bootstrap-suggest.min.js"></script>
 <script type="text/javascript">
     //查询
     $(document).ready(function (){
@@ -274,9 +246,9 @@
                         htm2 = '<a href="<%=path%>/product/kPicture?code='+code+'&jude=1" class="btn btn-xs btn-outline btn-success">添加收费单</a>';
                         return  '<select onchange="window.location=this.value;" style="border:none;color: #00a1e9">' +
                                 '<option>选择付款方式</option>' +
-                                '<option value="/index/cash?nmgb='+code+'">现金</option>' +
-                                '<option value="/index/elect?nmgb='+code+'">电汇</option>' +
-                                '<option value="/index/accept?nmgb='+code+'">承兑</option>' +
+                                '<option value="<%=path%>/index/cash?nmgb='+code+'">现金</option>' +
+                                '<option value="<%=path%>/index/elect?nmgb='+code+'">电汇</option>' +
+                                '<option value="<%=path%>/index/accept?nmgb='+code+'">承兑</option>' +
                                  '</select>';
                     }
                 }

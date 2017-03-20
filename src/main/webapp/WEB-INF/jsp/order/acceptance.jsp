@@ -1,13 +1,13 @@
-<%--<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://"
             + request.getServerName() + ":" + request.getServerPort()
             + path + "/";
-%>--%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+%>
 <html>
 <head>
     <title>承兑付款单</title>
@@ -18,9 +18,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <!--移动设备支持， width=device-width 自适应宽度,initial-scale=1.0 初始缩放比例为1:1,user-scalable 用户是否可以手动缩放-->
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <link rel='stylesheet' type='text/css' href='../../static/css/bootstrap.min.css'>
-    <link rel='stylesheet' type='text/css' href='../../static/plus/table/bootstrap-table.min.css'>
-    <link rel='stylesheet' type='text/css' href='../../static/plus/datatime/bootstrap-datetimepicker.min.css'>
+    <link rel='stylesheet' type='text/css' href='<%=path%>/static/css/bootstrap.min.css'>
+    <link rel='stylesheet' type='text/css' href='<%=path%>/static/plus/table/bootstrap-table.min.css'>
+    <link rel='stylesheet' type='text/css' href='<%=path%>/static/plus/datatime/bootstrap-datetimepicker.min.css'>
 </head>
 <body style="margin-right: 40px;margin-left: 40px">
 <div class="row">
@@ -53,15 +53,15 @@
         </div>
     </div>
 </from>
-<script type="text/javascript" src="../../static/js/html5shiv.min.js"></script>
-<script type="text/javascript" src="../../static/js/jquery.min.js"></script>
-<script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../static/plus/table/bootstrap-table.min.js"></script>
-<script type="text/javascript" src="../../static/plus/table/bootstrap-table-zh-CN.min.js"></script>
-<script type="text/javascript" src="../../static/plus/table/bootstrap-table-edit.js"></script>
-<script type="text/javascript" src="../../static/plus/datatime/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript" src="../../static/plus/datatime/bootstrap-datetimepicker.zh-CN.js"></script>
-<script type="text/javascript" src="../../static/plus/bootstrap-select.js"></script>
+<script type="text/javascript" src="<%=path%>/static/js/html5shiv.min.js"></script>
+<script type="text/javascript" src="<%=path%>/static/js/jquery.min.js"></script>
+<script type="text/javascript" src="<%=path%>/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=path%>/static/plus/table/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="<%=path%>/static/plus/table/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript" src="<%=path%>/static/plus/table/bootstrap-table-edit.js"></script>
+<script type="text/javascript" src="<%=path%>/static/plus/datatime/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="<%=path%>/static/plus/datatime/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="<%=path%>/static/plus/bootstrap-select.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#in1').change(function () {

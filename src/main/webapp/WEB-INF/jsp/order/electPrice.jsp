@@ -17,21 +17,21 @@
 
     <title>电汇单</title>
 
-    <link rel="shortcut icon" href="../../static/hplus/favicon.ico">
-    <link href="../../static/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="../../static/hplus/css/font-awesome.css?v=4.4.0" rel="stylesheet">
-    <link href="../../static/hplus/css/animate.css" rel="stylesheet">
-    <link href="../../static/hplus/css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="shortcut icon" href="<%=path%>/static/hplus/favicon.ico">
+    <link href="<%=path%>/static/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="<%=path%>/static/hplus/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="<%=path%>/static/hplus/css/animate.css" rel="stylesheet">
+    <link href="<%=path%>/static/hplus/css/style.css?v=4.1.0" rel="stylesheet">
 
 
-    <link href="../../statics2/saas/scm/app2_release/css/common.css?ver=20150522" rel="stylesheet" type="text/css">
-    <link href="../../statics2/saas/scm/app2_release/css/green/ui.min.css?ver=20150522" rel="stylesheet">
-    <script src="../../statics2/saas/scm/app2_release/js/common/libs/jquery/jquery-1.10.2.min.js"></script>
-    <script src="../../statics2/saas/scm/app2_release/js/common/libs/json3.min.js"></script>
-    <script src="../../statics2/saas/scm/app2_release/js/common/common.js?ver=20150522"></script>
-    <script src="../../statics2/saas/scm/app2_release/js/common/grid.js?ver=20150522"></script>
-    <script src="../../statics2/saas/scm/app2_release/js/common/plugins.js?ver=20150522"></script>
-    <script src="../../statics2/saas/scm/app2_release/js/common/plugins/jquery.dialog.js?self=true&ver=20150522"></script>
+    <link href="<%=path%>/statics2/saas/scm/app2_release/css/common.css?ver=20150522" rel="stylesheet" type="text/css">
+    <link href="<%=path%>/statics2/saas/scm/app2_release/css/green/ui.min.css?ver=20150522" rel="stylesheet">
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/libs/jquery/jquery-1.10.2.min.js"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/libs/json3.min.js"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/common.js?ver=20150522"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/grid.js?ver=20150522"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/plugins.js?ver=20150522"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/plugins/jquery.dialog.js?self=true&ver=20150522"></script>
 
     <script type="text/javascript">
         var DOMAIN = document.domain;
@@ -60,9 +60,9 @@
         });
     </script>
 
-    <link href="../../statics2/css/base.css" rel="stylesheet" type="text/css">
-    <link href="../../statics2/css/green/default.css?ver=20150522" rel="stylesheet" type="text/css" id="defaultFile">
-    <script src="../../statics2/saas/scm/app2_release/js/common/tabs.js?ver=20150522"></script>
+    <link href="<%=path%>/statics2/css/base.css" rel="stylesheet" type="text/css">
+    <link href="<%=path%>/statics2/css/green/default.css?ver=20150522" rel="stylesheet" type="text/css" id="defaultFile">
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/tabs.js?ver=20150522"></script>
     <!-- author：357058607 -->
 
 

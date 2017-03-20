@@ -24,16 +24,16 @@
     <link href="<%=path%>/static/hplus/css/style.css?v=4.1.0" rel="stylesheet">
 
 
-    <link href="statics2/saas/scm/app2_release/css/common.css?ver=20150522" rel="stylesheet" type="text/css">
-    <link href="statics2/saas/scm/app2_release/css/green/ui.min.css?ver=20150522" rel="stylesheet">
-    <script src="statics2/saas/scm/app2_release/js/common/libs/jquery/jquery-1.10.2.min.js"></script>
-    <script src="statics2/saas/scm/app2_release/js/common/libs/json3.min.js"></script>
-    <script src="statics2/saas/scm/app2_release/js/common/common.js?ver=20150522"></script>
-    <script src="statics2/saas/scm/app2_release/js/common/grid.js?ver=20150522"></script>
-    <script src="statics2/saas/scm/app2_release/js/common/plugins.js?ver=20150522"></script>
-    <script src="statics2/saas/scm/app2_release/js/common/plugins/jquery.dialog.js?self=true&ver=20150522"></script>
-    
-    
+    <link href="<%=path%>/statics2/saas/scm/app2_release/css/common.css?ver=20150522" rel="stylesheet" type="text/css">
+    <link href="<%=path%>/statics2/saas/scm/app2_release/css/green/ui.min.css?ver=20150522" rel="stylesheet">
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/libs/jquery/jquery-1.10.2.min.js"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/libs/json3.min.js"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/common.js?ver=20150522"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/grid.js?ver=20150522"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/plugins.js?ver=20150522"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/plugins/jquery.dialog.js?self=true&ver=20150522"></script>
+
+
     <script type="text/javascript">
         var DOMAIN = document.domain;
         var WDURL = "http://127.0.0.1/erpv2/index.php";
@@ -128,22 +128,22 @@
              * 判断IE6，提示使用高级版本
              */
             /*if(Public.isIE6) {
-                var Oldbrowser = {
-                    init: function(){
-                        this.addDom();
-                    },
-                    addDom: function() {
-                        var html = $('<div id="browser">您使用的浏览器版本过低，影响网页性能，建议您换用<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html" target="_blank">谷歌</a>、<a href="http://download.microsoft.com/download/4/C/A/4CA9248C-C09D-43D3-B627-76B0F6EBCD5E/IE9-Windows7-x86-chs.exe" target="_blank">IE9</a>、或<a href=http://firefox.com.cn/" target="_blank">火狐浏览器</a>，以便更好的使用！<a id="bClose" title="关闭">x</a></div>').insertBefore('#container').slideDown(500);
-                        this._colse();
-                    },
-                    _colse: function() {
-                        $('#bClose').click(function(){
-                            $('#browser').remove();
-                        });
-                    }
-                };
-                Oldbrowser.init();
-            };*/
+             var Oldbrowser = {
+             init: function(){
+             this.addDom();
+             },
+             addDom: function() {
+             var html = $('<div id="browser">您使用的浏览器版本过低，影响网页性能，建议您换用<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html" target="_blank">谷歌</a>、<a href="http://download.microsoft.com/download/4/C/A/4CA9248C-C09D-43D3-B627-76B0F6EBCD5E/IE9-Windows7-x86-chs.exe" target="_blank">IE9</a>、或<a href=http://firefox.com.cn/" target="_blank">火狐浏览器</a>，以便更好的使用！<a id="bClose" title="关闭">x</a></div>').insertBefore('#container').slideDown(500);
+             this._colse();
+             },
+             _colse: function() {
+             $('#bClose').click(function(){
+             $('#browser').remove();
+             });
+             }
+             };
+             Oldbrowser.init();
+             };*/
             getPageConfig();
             getGoods();
             getStorage();
@@ -451,43 +451,17 @@
         })();
     </script>
 </head>
-
 <body class="top-navigation full-height-layout gray-bg" >
-
 <div id="wrapper" style="background-color: transparent">
     <div id="page-wrapper" class="gray-bg" style="height: 90%; min-height: auto;">
         <div class="row border-bottom white-bg">
             <!-- 页面顶部¨ -->
             <%@ include file="top.jsp"%>
         </div>
-
-
-
-
-        <div class="row J_mainContent" id="content-main">
-            <iframe class="J_iframe" name="mainFrame" width="100%" height="100%" src="/index/list" frameborder="0" data-id="index_v1.html" seamless></iframe>
+        <div class="row J_mainContent" id="content-main" style="height: 100%">
+            <iframe class="J_iframe" name="mainFrame" width="100%" height="100%" src="<%=path%>/index/list" frameborder="0" data-id="index_v1.html" seamless></iframe>
         </div>
-      <%--  <div class="footer">
-            <div class="pull-right">
-                By：<a href="http://www.zi-han.net" target="_blank">zihan's blog</a>
-            </div>
-            <div>
-                <strong>Copyright</strong> H+ &copy; 2014
-            </div>
-        </div>--%>
-
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
 </body>
-
 </html>
