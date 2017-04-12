@@ -15,25 +15,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>H+ 后台主题UI框架 - 首页示例四</title>
+    <title>详情单</title>
 
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="<%=path%>/static/hplus/favicon.ico">
     <link href="<%=path%>/static/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="<%=path%>/static/hplus/css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="<%=path%>/static/hplus/css/animate.css" rel="stylesheet">
     <link href="<%=path%>/static/hplus/css/style.css?v=4.1.0" rel="stylesheet">
 
 
-    <link href="statics2/saas/scm/app2_release/css/common.css?ver=20150522" rel="stylesheet" type="text/css">
-    <link href="statics2/saas/scm/app2_release/css/green/ui.min.css?ver=20150522" rel="stylesheet">
-    <script src="statics2/saas/scm/app2_release/js/common/libs/jquery/jquery-1.10.2.min.js"></script>
-    <script src="statics2/saas/scm/app2_release/js/common/libs/json3.min.js"></script>
-    <script src="statics2/saas/scm/app2_release/js/common/common.js?ver=20150522"></script>
-    <script src="statics2/saas/scm/app2_release/js/common/grid.js?ver=20150522"></script>
-    <script src="statics2/saas/scm/app2_release/js/common/plugins.js?ver=20150522"></script>
-    <script src="statics2/saas/scm/app2_release/js/common/plugins/jquery.dialog.js?self=true&ver=20150522"></script>
-    
-    
+    <link href="<%=path%>/statics2/saas/scm/app2_release/css/common.css?ver=20150522" rel="stylesheet" type="text/css">
+    <link href="<%=path%>/statics2/saas/scm/app2_release/css/green/ui.min.css?ver=20150522" rel="stylesheet">
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/libs/jquery/jquery-1.10.2.min.js"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/libs/json3.min.js"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/common.js?ver=20150522"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/grid.js?ver=20150522"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/plugins.js?ver=20150522"></script>
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/plugins/jquery.dialog.js?self=true&ver=20150522"></script>
+
     <script type="text/javascript">
         var DOMAIN = document.domain;
         var WDURL = "http://127.0.0.1/erpv2/index.php";
@@ -61,12 +60,16 @@
         });
     </script>
 
-    <link href="statics2/css/base.css" rel="stylesheet" type="text/css">
-    <link href="statics2/css/green/default.css?ver=20150522" rel="stylesheet" type="text/css" id="defaultFile">
-    <script src="statics2/saas/scm/app2_release/js/common/tabs.js?ver=20150522"></script>
+    <link href="<%=path%>/statics2/css/base.css" rel="stylesheet" type="text/css">
+    <link href="<%=path%>/statics2/css/green/default.css?ver=20150522" rel="stylesheet" type="text/css" id="defaultFile">
+    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/tabs.js?ver=20150522"></script>
     <!-- author：357058607 -->
 
-
+    <style>
+        .wrapper{
+            height: 100%;
+        }
+    </style>
     <script>
         var CONFIG = {
             DEFAULT_PAGE: true,
@@ -122,323 +125,6 @@
         //区分服务支持
         SYSTEM.servicePro = SYSTEM.siType === 2 ? 'forbscm3' : 'forscm3';
         var cacheList = {};	//缓存列表查询
-        //全局基础数据
-        (function(){
-            /*
-             * 判断IE6，提示使用高级版本
-             */
-            /*if(Public.isIE6) {
-                var Oldbrowser = {
-                    init: function(){
-                        this.addDom();
-                    },
-                    addDom: function() {
-                        var html = $('<div id="browser">您使用的浏览器版本过低，影响网页性能，建议您换用<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html" target="_blank">谷歌</a>、<a href="http://download.microsoft.com/download/4/C/A/4CA9248C-C09D-43D3-B627-76B0F6EBCD5E/IE9-Windows7-x86-chs.exe" target="_blank">IE9</a>、或<a href=http://firefox.com.cn/" target="_blank">火狐浏览器</a>，以便更好的使用！<a id="bClose" title="关闭">x</a></div>').insertBefore('#container').slideDown(500);
-                        this._colse();
-                    },
-                    _colse: function() {
-                        $('#bClose').click(function(){
-                            $('#browser').remove();
-                        });
-                    }
-                };
-                Oldbrowser.init();
-            };*/
-            getPageConfig();
-            getGoods();
-            getStorage();
-            getCustomer();
-            getSupplier();
-            getAddr();
-            getUnit();
-            getUnitGroup();
-            getAccounts();
-            getAssistingPropType();
-            getAssistingProp();
-            getAssistingPropGroup();
-            getStaff();
-            getBatch();
-        })();
-        //缓存用户配置
-        function getPageConfig(){
-            //return;
-            Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/userSetting?action=list', {}, function(data){
-                if(data.status === 200) {
-                    SYSTEM.pageConfigInfo = {};
-                    for (var i = 0; i < data.data.rows.length; i++) {
-                        var conf = data.data.rows[i];
-                        SYSTEM.pageConfigInfo[''+conf.key] = conf['value'] || {};
-                        for(var gridId in conf.grids){
-                            var g = conf.grids[gridId];
-                            if(typeof g != 'function' && g.isReg){
-                                var colModel = g.colModel;
-                                var tmpArr = [];
-                                for (var i = 0; i < colModel.length; i++) {
-                                    var col = colModel[i];
-                                    tmpArr.push({
-                                        name: col['name']//列名,唯一标识
-                                        ,label: col['label']//列名
-                                        ,hidden: col['hidden']//显示与隐藏
-                                        ,width: col['width']//宽度
-                                    })
-                                };
-                                g.colModel = tmpArr;
-                            }
-                        }
-                    };
-                } else if (data.status === 250){
-                    SYSTEM.pageConfigInfo = {};
-                } else {
-                    Public.tips({type: 1, content : data.msg});
-                }
-            });
-        };
-        //缓存商品信息
-        function getGoods() {
-            if(SYSTEM.isAdmin || SYSTEM.rights.INVENTORY_QUERY) {
-                //&isDelete=2 获取全部，很奇葩的定义。。。
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/inventory?action=list&isDelete=2', { rows: 5000 }, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.goodsInfo = data.data.rows;
-                    } else if (data.status === 250){
-                        SYSTEM.goodsInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.goodsInfo = [];
-            }
-        };
-        //缓存仓库信息
-        function getStorage() {
-            if(SYSTEM.isAdmin || SYSTEM.rights.INVLOCTION_QUERY) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/invlocation?action=list&isDelete=2', {}, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.storageInfo = data.data.rows;
-                    } else if (data.status === 250){
-                        SYSTEM.storageInfo = [];
-                    }  else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.storageInfo = [];
-            }
-        };
-        //缓存客户信息
-        function getCustomer() {
-            if(SYSTEM.isAdmin || SYSTEM.rights.BU_QUERY) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/contact?action=list&simple=1&isDelete=2', { rows: 5000 }, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.customerInfo = data.data.rows;
-                    } else if (data.status === 250){
-                        SYSTEM.customerInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.customerInfo = [];
-            }
-        };
-        //缓存供应商信息
-        function getSupplier() {
-            if(SYSTEM.isAdmin || SYSTEM.rights.PUR_QUERY) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/contact?action=list&simple=1&type=10&isDelete=2', { rows: 5000 }, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.supplierInfo = data.data.rows;
-                    } else if (data.status === 250){
-                        SYSTEM.supplierInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.supplierInfo = [];
-            }
-        };
-        //缓存地址信息
-        function getAddr() {
-            if(SYSTEM.isAdmin || SYSTEM.rights.DELIVERYADDR_QUERY) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/deliveryAddr?action=list&isDelete=2', { rows: 5000 }, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.addrInfo = data.data.items;
-                    } else if (data.status === 250){
-                        SYSTEM.addrInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.addrInfo = [];
-            }
-        };
-        //缓存职员
-        function getStaff() {
-            if(true) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/employee?action=list&isDelete=2', {}, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.salesInfo = data.data.items;
-                    } else if (data.status === 250){
-                        SYSTEM.salesInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.salesInfo = [];
-            }
-        };
-        //缓存账户信息
-        function getAccounts() {
-            if(SYSTEM.isAdmin || SYSTEM.rights.SettAcct_QUERY) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/settAcct?action=list&isDelete=2', {}, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.accountInfo = data.data.items;
-                    } else if (data.status === 250){
-                        SYSTEM.accountInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.accountInfo = [];
-            }
-        };
-        //缓存结算方式
-        function getPayments() {
-            if(true) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/assist?action=list&typeNumber=PayMethod&isDelete=2', {}, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.paymentInfo = data.data.items;
-                    } else if (data.status === 250){
-                        SYSTEM.paymentInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.paymentInfo = [];
-            }
-        };
-        //缓存计量单位
-        function getUnit(){
-            if(SYSTEM.isAdmin || SYSTEM.rights.UNIT_QUERY) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/unit?action=list&isDelete=2', {}, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.unitInfo = data.data.items;
-                    } else if (data.status === 250){
-                        SYSTEM.unitInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.unitInfo = [];
-            }
-        }
-        //缓存计量单位组
-        function getUnitGroup(){
-            if(SYSTEM.isAdmin || SYSTEM.rights.UNIT_QUERY) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/unitType?action=list', {}, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.unitGroupInfo = data.data.items;
-                    } else if (data.status === 250){
-                        SYSTEM.unitGroupInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.unitGroupInfo = [];
-            }
-        }
-        //缓存计量单位
-        function getAssistingProp(){
-            if(SYSTEM.isAdmin || SYSTEM.rights.UNIT_QUERY) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/unitType?action=list', {}, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.unitGroupInfo = data.data.items;
-                    } else if (data.status === 250){
-                        SYSTEM.unitGroupInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.unitGroupInfo = [];
-            }
-        }
-        //缓存辅助属性分类
-        function getAssistingPropType(){
-            if(SYSTEM.isAdmin || SYSTEM.rights.FZSX_QUERY) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/assistType?action=list', {}, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.assistPropTypeInfo = data.data.items;
-                    } else if (data.status === 250){
-                        SYSTEM.assistPropTypeInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.assistPropTypeInfo = [];
-            }
-        }
-        //缓存辅助属性
-        function getAssistingProp(){
-            if(SYSTEM.isAdmin || SYSTEM.rights.FZSX_QUERY) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/assist?action=list&isDelete=2', {}, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.assistPropInfo = data.data.items;
-                    } else if (data.status === 250){
-                        SYSTEM.assistPropInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.assistPropInfo = [];
-            }
-        }
-        //缓存辅助属性组合
-        function getAssistingPropGroup(){
-            if(SYSTEM.isAdmin || SYSTEM.rights.FZSX_QUERY) {
-                Public.ajaxGet('http://127.0.0.1/erpv2/index.php/basedata/assistSku?action=list', {}, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.assistPropGroupInfo = data.data.items;
-                    } else if (data.status === 250){
-                        SYSTEM.assistPropGroupInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.assistPropGroupInfo = [];
-            }
-        }
-        //缓存辅助属性组合
-        function getBatch(){
-            return;
-            if(SYSTEM.isAdmin || SYSTEM.ISWARRANTY) {
-                Public.ajaxGet('/warranty.do?action=getBatchNoList', {}, function(data){
-                    if(data.status === 200) {
-                        SYSTEM.batchInfo = data.data.items;
-                    } else if (data.status === 250){
-                        SYSTEM.batchInfo = [];
-                    } else {
-                        Public.tips({type: 1, content : data.msg});
-                    }
-                });
-            } else {
-                SYSTEM.batchInfo = [];
-            }
-        }
-        //左上侧版本标识控制
-        function markupVension(){
-
-        };
 
     </script>
     <script>
@@ -453,6 +139,15 @@
 </head>
 
 <body class="top-navigation full-height-layout gray-bg" >
+<script src="<%=path%>static/hplus/js/jquery.min.js?v=2.1.4"></script>
+<script src="<%=path%>static/hplus/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="<%=path%>static/hplus/js/content.js?v=1.0.0"></script>
+<script src="<%=path%>static/hplus/js/plugins/flot/jquery.flot.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/flot/jquery.flot.resize.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/chartJs/Chart.min.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/peity/jquery.peity.min.js"></script>
+<script src="<%=path%>static/hplus/js/demo/peity-demo.js"></script>
 
 <div id="wrapper" style="background-color: transparent">
     <div id="page-wrapper" class="gray-bg" style="height: 90%; min-height: auto;">
@@ -465,16 +160,16 @@
 
 
         <div class="row J_mainContent" id="content-main">
-            <iframe class="J_iframe" name="mainFrame" width="100%" height="100%" src="<%=path%>/index/saleput" frameborder="0" data-id="index_v1.html" seamless></iframe>
+            <iframe class="J_iframe" name="mainFrame" width="100%" height="100%" src="/index/saleput" frameborder="0" data-id="index_v1.html" seamless></iframe>
         </div>
-      <%--  <div class="footer">
-            <div class="pull-right">
-                By：<a href="http://www.zi-han.net" target="_blank">zihan's blog</a>
-            </div>
-            <div>
-                <strong>Copyright</strong> H+ &copy; 2014
-            </div>
-        </div>--%>
+        <%--  <div class="footer">
+              <div class="pull-right">
+                  By：<a href="http://www.zi-han.net" target="_blank">zihan's blog</a>
+              </div>
+              <div>
+                  <strong>Copyright</strong> H+ &copy; 2014
+              </div>
+          </div>--%>
 
     </div>
 </div>

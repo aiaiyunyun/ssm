@@ -18,17 +18,17 @@
     <meta name="keywords" content="科研项目管理">
     <meta name="description" content="科研项目管理">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
-    <link rel="shortcut icon" href="<%=path%>/static/hplus/favicon.ico">
-    <link href="<%=path%>/static/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="<%=path%>/static/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="<%=path%>/static/hplus/css/font-awesome.css?v=4.4.0" rel="stylesheet">
-    <link href="<%=path%>/static/hplus/css/animate.css" rel="stylesheet">
-    <link href="<%=path%>/static/hplus/css/style.css?v=4.1.0" rel="stylesheet">
-    <link href="<%=path%>/static/hplus/css/plugins/toastr/toastr.min.css" rel="stylesheet">
-    <link href="<%=path%>/static/hplus/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-    <link href="<%=path%>/static/hplus/css/plugins/jqgrid/ui.jqgrid.css?0820" rel="stylesheet">
-    <link href="<%=path%>/static/hplus/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-    <link href="<%=path%>/static/hplus/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link rel="shortcut icon" href="<%=path%>static/hplus/favicon.ico">
+    <link href="<%=path%>static/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="<%=path%>static/hplus/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="<%=path%>static/hplus/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="<%=path%>static/hplus/css/animate.css" rel="stylesheet">
+    <link href="<%=path%>static/hplus/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="<%=path%>static/hplus/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="<%=path%>static/hplus/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="<%=path%>static/hplus/css/plugins/jqgrid/ui.jqgrid.css?0820" rel="stylesheet">
+    <link href="<%=path%>static/hplus/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="<%=path%>static/hplus/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <style>
         .jqGrid_wrapper{background: white;}
         textarea{ resize:none;}
@@ -50,49 +50,6 @@
             window.location.reload();
         }
     </script>
-    <style type="text/css">
-        .venus-menu {
-            width: 100%;
-            padding: 0;
-            position: relative;
-            float: left;
-            list-style: none;
-            box-shadow: 0 0px 0px #dedede;
-            margin-left:0px; width: 900px;background: url(../image/index/top_02.jpg) no-repeat;
-            border:0px solid red;height:30px;
-            padding: 9px 0 0px; font-size: 14.25px; font-family: "Calibri";margin-top: 49px;
-        }
-        .venus-menu li {
-            display: inline-block;
-            margin: 0;
-            padding: 0;
-            float: left;
-            top:-8px;
-            line-height: 38px;
-            text-align:left;
-            position: relative;border:0px solid red;
-        }
-        .meunline{width:2px; height:40px;}
-
-
-        .venus-menu > li > a {
-            padding: 0px 27px;
-            font-size: 17px;
-            font-weight:bold;
-            color: #FFF;
-            line-height: 38px;
-            text-decoration: none;
-            display: block;
-            -webkit-transition: color 0.2s linear, background 0.2s linear;
-            -moz-transition: color 0.2s linear, background 0.2s linear;
-            -o-transition: color 0.2s linear, background 0.2s linear;
-            transition: color 0.2s linear, background 0.2s linear;
-        }
-        .venus-menu li:hover > a, .venus-menu li.active a {
-            background-color:#053fad;
-            color: Yellow;
-        }
-    </style>
 </head>
 
 <body class="gray-bg">
@@ -132,24 +89,24 @@
 
 </div>
 <!-- 全局js -->
-<script src="<%=path%>/static/hplus/js/jquery.min.js?v=2.1.4"></script>
-<script src="<%=path%>/static/hplus/js/bootstrap.min.js?v=3.3.6"></script>
-<script src="<%=path%>/static/hplus/js/plugins/peity/jquery.peity.min.js"></script>
-<script src="<%=path%>/static/hplus/js/plugins/jqgrid/i18n/grid.locale-cn.js?0820"></script>
-<script src="<%=path%>/static/hplus/js/plugins/jqgrid/jquery.jqGrid.min.js?0820"></script>
-<script src="<%=path%>/static/hplus/js/plugins/jasny/jasny-bootstrap.min.js"></script>
-<script src="<%=path%>/static/hplus/js/plugins/validate/jquery.validate.min.js"></script>
-<script src="<%=path%>/static/hplus/js/plugins/validate/messages_zh.min.js"></script>
-<script src="<%=path%>/static/hplus/js/demo/form-validate-demo.js"></script>
-<script src="<%=path%>/static/js/jquery.tips.js"></script>
-<script src="<%=path%>/static/hplus/js/plugins/dropzone/dropzone.js"></script>
-<script src="<%=path%>/static/hplus/js/plugins/toastr/toastr.min.js"></script>
-<script src="<%=path%>/static/hplus/js/plugins/datapicker/bootstrap-datepicker.js"></script>
-<script src="<%=path%>/static/hplus/js/plugins/suggest/bootstrap-suggest.min.js"></script>
-<script src="<%=path%>/static/hplus/js/plugins/datapicker/bootstrap-datepicker.js"></script>
-<script src="<%=path%>/static/js/json2.js"></script>
-<script src="<%=path%>/static/sales/sales_input.js"></script>
-<script src="<%=path%>/static/hplus/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<script src="<%=path%>static/hplus/js/jquery.min.js?v=2.1.4"></script>
+<script src="<%=path%>static/hplus/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="<%=path%>static/hplus/js/plugins/peity/jquery.peity.min.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/jqgrid/i18n/grid.locale-cn.js?0820"></script>
+<script src="<%=path%>static/hplus/js/plugins/jqgrid/jquery.jqGrid.min.js?0820"></script>
+<script src="<%=path%>static/hplus/js/plugins/jasny/jasny-bootstrap.min.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/validate/messages_zh.min.js"></script>
+<script src="<%=path%>static/hplus/js/demo/form-validate-demo.js"></script>
+<script src="<%=path%>static/js/jquery.tips.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/dropzone/dropzone.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/toastr/toastr.min.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/suggest/bootstrap-suggest.min.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+<script src="<%=path%>static/js/json2.js"></script>
+<script src="<%=path%>static/sales/sales_input.js"></script>
+<script src="<%=path%>static/hplus/js/plugins/suggest/bootstrap-suggest.min.js"></script>
 <script type="text/javascript">
     //查询
     $(document).ready(function (){
@@ -238,17 +195,15 @@
                     sortable: false,
                     formatter: function (cellvalue, options, rowdata) {
                         var code = rowdata.documentNumber;
-
                         var id=rowdata.id;
-                        console.log(code+"&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"+id);
                         var useId = '${userId}'.valueOf();
                         var product_type = rowdata.product_type;
                         htm2 = '<a href="<%=path%>/product/kPicture?code='+code+'&jude=1" class="btn btn-xs btn-outline btn-success">添加收费单</a>';
                         return  '<select onchange="window.location=this.value;" style="border:none;color: #00a1e9">' +
                                 '<option>选择付款方式</option>' +
-                                '<option value="<%=path%>/index/cash?nmgb='+code+'">现金</option>' +
-                                '<option value="<%=path%>/index/elect?nmgb='+code+'">电汇</option>' +
-                                '<option value="<%=path%>/index/accept?nmgb='+code+'">承兑</option>' +
+                                '<option value="<%=path%>index/cash?nmgb='+code+'">现金</option>' +
+                                '<option value="<%=path%>index/elect?nmgb='+code+'">电汇</option>' +
+                                '<option value="<%=path%>index/accept?nmgb='+code+'">承兑</option>' +
                                  '</select>';
                     }
                 }
@@ -258,7 +213,6 @@
             hidegrid: false,
             onSelectRow: function (rowid) {
                 var data = $('#table_list_1').jqGrid('getRowData',rowid);
-                console.log(data);
                 $('#id').val(data.id);//编码
                 $('#customerName').val(data.customerName);//编码
                 $('#salesmanName').val(data.salesmanName);//编码
@@ -270,7 +224,6 @@
             gridComplete: function(){
                 $('button[name="delete"]').click(function(){
                     var rowid = $(this).attr('rowid');
-                    console.log("1....."+rowid)
                     var rowData = $('#table_list_1').jqGrid('getRowData',rowid);
                     $('#id').val($(this).attr('id'));
                     $('#myModal6').modal();
@@ -337,8 +290,8 @@
     };
 </script>
 <!-- layerDate plugin javascript -->
-<script src="../../static/hplus/js/plugins/layer/laydate/laydate.js"></script>
-<script type="text/javascript">
+<%--<script src="<%=path%>static/hplus/js/plugins/layer/laydate/laydate.js"></script>--%>
+<%--<script type="text/javascript">
     //百度搜索测试
 
     var num = $("#baidu").val();
@@ -374,7 +327,7 @@
             return data;
         }
     });
-</script>
+</script>--%>
 <script type="text/javascript">
     function screeningSp3(){
         var data = $('#shaixuanform').serialize();
@@ -386,30 +339,5 @@
         $("#table_list_1").jqGrid().trigger('reloadGrid');
     }
 </script>
-<script>
-    //外部js调用
-    laydate({
-        elem: '#sstart_time', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
-        event: 'focus' //响应事件。如果没有传入event，则按照默认的click
-    });
-
-    laydate({
-        elem: '#send_time', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
-        event: 'focus' //响应事件。如果没有传入event，则按照默认的click
-    });
-    laydate({
-        elem: '#snew_time', //目标元素。由于laydate.js封装了一个轻量级的选择器引擎，因此elem还允许你传入class、tag但必须按照这种方式 '#id .class'
-        event: 'focus' //响应事件。如果没有传入event，则按照默认的click
-    });
-</script>
-<!-- 全局js -->
-<%--<script src="../../static/hplus/js/jquery.min.js?v=2.1.4"></script>--%>
-<%--<script src="../../static/hplus/js/bootstrap.min.js?v=3.3.6"></script>--%>
-<%--<script src="../../static/hplus/js/plugins/metisMenu/jquery.metisMenu.js"></script>--%>
-<%--<script src="../../static/hplus/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>--%>
-<%--<script src="../../static/hplus/js/plugins/layer/layer.min.js"></script>--%>
-<%--<script src="../../static/hplus/js/hplus.js?v=4.1.0"></script>--%>
-<%--<script type="text/javascript" src="../../static/hplus/js/contabs.js"></script>--%>
-<%--<script src="../../static/hplus/js/plugins/pace/pace.min.js"></script>--%>
 </body>
 </html>

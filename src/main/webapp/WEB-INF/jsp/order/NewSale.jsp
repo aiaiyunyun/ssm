@@ -22,25 +22,15 @@
     <meta name="keywords" content="科研项目管理">
     <meta name="description" content="科研项目管理">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
-    <link href="<%=path%>/statics2/saas/scm/app2_release/css/common.css?ver=20150522" rel="stylesheet" type="text/css">
-    <link href="<%=path%>/statics2/saas/scm/app2_release/css/green/ui.min.css?ver=20150522" rel="stylesheet">
-    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/libs/jquery/jquery-1.10.2.min.js"></script>
-    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/libs/json3.min.js"></script>
-    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/common.js?ver=20150522"></script>
-    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/grid.js?ver=20150522"></script>
-    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/plugins.js?ver=20150522"></script>
-    <script src="<%=path%>/statics2/saas/scm/app2_release/js/common/plugins/jquery.dialog.js?self=true&ver=20150522"></script>
-
-    <style>
-        .wrapper{background: white;}
-        textarea{ resize:none;}
-        input{vertical-align: middle;}
-    </style>
-    <link href="<%=path%>/statics2/css/green/bills.css?ver=20150522" rel="stylesheet" type="text/css">
-    <style>
-        #barCodeInsert{margin-left: 10px;font-weight: 100;font-size: 12px;color: #fff;background-color: #B1B1B1;padding: 0 5px;border-radius: 2px;line-height: 19px;height: 20px;display: inline-block;}
-        #barCodeInsert.active{background-color: #23B317;}
-    </style>
+    <link href="<%=path%>statics2/saas/scm/app2_release/css/common.css?ver=20150522" rel="stylesheet" type="text/css">
+    <link href="<%=path%>statics2/saas/scm/app2_release/css/green/ui.min.css?ver=20150522" rel="stylesheet">
+    <script src="<%=path%>statics2/saas/scm/app2_release/js/common/libs/jquery/jquery-1.10.2.min.js"></script>
+    <script src="<%=path%>statics2/saas/scm/app2_release/js/common/libs/json3.min.js"></script>
+    <script src="<%=path%>statics2/saas/scm/app2_release/js/common/common.js?ver=20150522"></script>
+    <script src="<%=path%>statics2/saas/scm/app2_release/js/common/grid.js?ver=20150522"></script>
+    <script src="<%=path%>statics2/saas/scm/app2_release/js/common/plugins.js?ver=20150522"></script>
+    <script src="<%=path%>statics2/saas/scm/app2_release/js/common/plugins/jquery.dialog.js?self=true&ver=20150522"></script>
+    <link href="<%=path%>statics2/css/green/bills.css?ver=20150522" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -180,34 +170,8 @@
     <div id="storageBox" class="shadow target_box dn">
     </div>
 </div>
-<script src="<%=path%>/statics2/js/dist/sales.js?ver=20150522"></script>
-<script src="<%=path%>/static/sales/sales_input.js"></script>
-<script type="text/javascript">
-    var DOMAIN = document.domain;
-    var WDURL = "";
-    var SCHEME= "green";
-    try{
-        document.domain = 'http://127.0.0.1/erpv2/';
-    }catch(e){
-    }
-    //ctrl+F5 增加版本号来清空iframe的缓存的
-    $(document).keydown(function(event) {
-        /* Act on the event */
-        if(event.keyCode === 116 && event.ctrlKey){
-            var defaultPage = Public.getDefaultPage();
-            var href = defaultPage.location.href.split('?')[0] + '?';
-            var params = Public.urlParam();
-            params['version'] = Date.parse((new Date()));
-            for(i in params){
-                if(i && typeof i != 'function'){
-                    href += i + '=' + params[i] + '&';
-                }
-            }
-            defaultPage.location.href = href;
-            event.preventDefault();
-        }
-    });
-</script>
+<script src="<%=path%>statics2/js/dist/sales.js?ver=20150522"></script>
+<script src="<%=path%>static/sales/sales_input.js"></script>
 </body>
 
 </html>
